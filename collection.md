@@ -1,21 +1,27 @@
-# Collection and sampling protocol
+# Collection: November 2026 pilot
 
-**Status: prospective protocol for the portfolio extension; not a reconstruction of completed historical work.**
+## Implemented protocol
 
-1. Verify the exact listing and address for each store. Resolve Russell Square versus Hampstead before using Truedan material.
-2. Choose either a within-neighbourhood study or the existing cross-location Zone 1 comparison. This release describes the latter.
-3. Record collection date, listing URL, platform total review count, displayed rating, review dates and sort order separately.
-4. For a new feasible pilot, use up to 50 consecutive text reviews per store within the same predeclared 12-month window, ordered newest first. This is a proposed cap, not an achieved sample or a power calculation. Record fewer eligible reviews honestly. Record the final window before collecting.
-5. Exclude empty text and exact duplicate records; log reasons. Do not exclude a review because it contradicts the hypothesis. Record language; mark any translation and retain the original privately for checking.
-6. Preserve a local review ID and evidence pointer for every coded row. Mark inaccessible or untraceable material as such.
-7. Keep historical recovered reviews separate from newly collected records. Do not backdate new observations.
+Collected 5 November 2026 through the visible Google Maps interface. Each store was opened by name and address; Reviews → Sort → Newest was selected and the interface confirmed newest-to-oldest ordering. No sentiment keyword or star filter was applied. The first 20 displayed candidate cards per store formed the pilot frame. This small cap was a feasibility decision during collection, not a preregistered statistical design.
 
-## Recommended fields
+All 60 candidates remain in review_coding_public.csv. Six records had no customer text; owner responses beneath blank cards were not mistaken for reviews. MILKSHA-11 explicitly says the experience was written in 2021 despite a recent edit date, and is excluded. No replacement records were added. The other 53 were coded, including short general approval with no assignable theme.
 
-review_id, store_id, brand, store_address, listing_url, collected_at, review_date, date_precision, rating, language, paraphrase, evidence_pointer, overall_sentiment, themes, theme_polarity, ai_label, human_label, validation_status, exclusion_reason.
+| Store | Candidates | No text | Historical | Included | Included displayed ages |
+|---|---:|---:|---:|---:|---|
+| T4 Liverpool Street | 20 | 2 | 0 | 18 | 2 hours to 1 month |
+| Milksha Shaftesbury Avenue | 20 | 2 | 1 | 17 | 1 hour to 2 weeks; includes one edited record |
+| Truedan Russell Square | 20 | 2 | 0 | 18 | 2 days to 1 month |
 
-Displayed relative dates must not be converted into falsely precise dates. Platform total review counts are metadata, never the analysis denominator.
+This replaces the initial *proposed* 50-review/12-month protocol with a completed smaller recent-activity pilot. It does not pretend that equal counts create equal time exposure. Newest ordering may use update time, and actual visit dates are unknown for most records. Do not label these as all visits during a common month.
 
-## Reporting
+## Extraction and traceability
 
-Report included and excluded n for every store, dates, language handling and manual-check coverage. With one store per brand, label results by store and avoid generalising to the entire brand. Treat recent consecutive reviews as a convenience sample, not a random sample of customers.
+Visible customer-review text was distinguished from owner replies. Available See more controls were expanded. A Google native review ID, store listing URL, display rank and displayed relative date accompany every public row. T4 relative dates were translated from the Chinese interface into English without assigning exact calendar dates. Native review IDs identify records but are not claimed to be tested direct-review links. Locate records through the listing and metadata; live ordering may change.
+
+The public dataset contains short paraphrases, not verbatim review exports. Full originals were inspected during this session but no permanent raw-text archive is bundled; future verification depends on the live source and is subject to edits/deletions. This limits exact replay of the coding. The chart calculation is reproducible from the published labels.
+
+## Language and scope
+
+Google-displayed Chinese-to-English translations were used for MILKSHA-02/04 and TRUEDAN-07/08/09/10/12/13/15 (9 included rows). Original-language validation remains pending. Reviews of desserts are included because this is a store-experience study, not a drinks-only product test; different product mixes confound comparison.
+
+No reviewer names, photos, inferred demographics or owner replies enter the analysis. One candidate ID occurs once; similar comments by different reviewers are not arbitrarily deduplicated. Repeated staff praise can indicate sample concentration, but is not proof of incentivisation or manipulation.

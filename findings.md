@@ -1,25 +1,33 @@
-# Findings and visual analysis
+# Pilot findings and interpretation
 
-## Current evidence-supported conclusion
+53 included customer-text reviews from the first 20 newest-displayed records per store; collected 5 November 2026. AI-coded, not yet human-validated.
 
-The project identifies a useful positioning question, but the retained summaries inspected so far do not establish which brand performs best. They motivate testing the relationship between product appreciation and service friction. The documentary audit establishes uncertainty in source locations and counts; it does not establish customer-level frequencies.
+| Store | Positive | Mixed | Neutral | Negative | n |
+|---|---:|---:|---:|---:|---:|
+| T4 Liverpool Street | 18 (100.0%) | 0 | 0 | 0 | 18 |
+| Milksha Shaftesbury Avenue | 14 (82.4%) | 1 (5.9%) | 0 | 2 (11.8%) | 17 |
+| Truedan Russell Square | 14 (77.8%) | 2 (11.1%) | 0 | 2 (11.1%) | 18 |
 
-## Hypotheses for review-level analysis
+Percentages describe selected texts only. They are not satisfaction estimates for all customers. No significance testing or claim that one brand wins is warranted.
 
-| Hypothesis | Evidence needed | Alternative explanation |
+## Evidence-to-decision chain
+
+| Observation | Interpretation to test | Boundary |
 |---|---|---|
-| Product praise coexists with waiting or value complaints | Within-review theme polarity | Different customers may discuss unrelated experiences |
-| Speed is salient at the transit-location case | Traceable speed mentions with denominators | Selection, promotions or review solicitation |
-| Ingredient positioning differentiates the cases | Explicit review mentions plus verified brand positioning | Differences in product mix or customer expectations |
+| T4 staff/service is coded in all 18 texts; speed in 3 | Staff interaction may be central to this store's perceived value | Repeated staff mentions concentrate the sample; no causal inference |
+| Milksha product experience appears in 15/17 texts | Product appeal deserves protection during service changes | Desserts and new-product activity influence the sample |
+| Truedan has 4 explicit authenticity mentions and 2 mixed texts | Authenticity can coexist with operational friction | One store and a small selection cannot establish market preferences |
 
-## Chart specifications
+## Chart denominators
 
-1. **Sentiment composition:** 100% stacked bars by verified store, ordered positive / mixed / neutral / negative. Each bar shows included n. Separately report excluded or unresolved records.
-2. **Theme prevalence:** reviews mentioning a theme divided by included text reviews for that store. Count a theme at most once per review; themes are multi-label, so percentages can sum above 100%.
-3. **Theme polarity:** within each theme, show polarity counts and the number of reviews mentioning that theme. Do not mix this denominator with all reviews.
+Sentiment: category count / included text n for that store. Theme prevalence: distinct reviews mentioning a theme / included store n. A review can mention several themes. Theme polarity: count each review once within each mentioned theme, pooled across stores; pooled totals depend on store mix. Absent themes are not proof of absent needs.
 
-All charts must state dates, sample rules and whether labels have been human checked. Do not use decorative percentages, fabricated sample data or the platform's all-time review count as a sample denominator.
+## Sensitivity
 
-## Interpretation boundaries
+If MILKSHA-16 is judged positive rather than mixed, Milksha becomes 15/17 positive (88.2%), 0 mixed and 2/17 negative (11.8%). The main implication remains to protect product experience while investigating service issues. Its taste polarity would also change from mixed to positive. Author review should resolve this borderline label.
 
-Comparisons are descriptive and store-specific. No causal claim that speed produces higher sales, no assumption that reviewers are commuters, and no ranking of overall brand success. An operational recommendation must remain a test proposal without business outcome data.
+MILKSHA-11, an edited record explicitly referring to 2021, is excluded. Retaining it would make the sample a mix of recent activity and a known old experience. Do not silently include it to increase authenticity or waiting counts.
+
+## Strategic implication
+
+The original assertion that efficiency is commercially superior is unsupported by this pilot. A narrower test of reliable service alongside product quality is defensible. Review-only evidence cannot establish cost savings, repeat purchase, commuter identity or location profitability. The 90-day plan remains a proposal.

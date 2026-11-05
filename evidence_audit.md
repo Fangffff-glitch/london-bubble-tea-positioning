@@ -1,21 +1,31 @@
-# Evidence audit
+# Evidence audit and validation status
 
-| Finding | Impact | Current treatment | Resolution needed |
-|---|---|---|---|
-| Truedan is 816 reviews in the executive section but 300+ in the matrix | Unclear listing/date; unreliable comparison | No numerical comparison published | Recover dated listing evidence |
-| Milksha is 388 versus 350+ | Exact versus rounded count is not explained | Not treated as analysed n | Verify snapshot and rounding |
-| Retained theme summary mentions Hampstead or other branches; brief uses Russell Square | Location contamination | Exclude summary from store-specific conclusions | Trace each underlying source |
-| “Keyword frequency” note contains no counts | Cannot reproduce frequency claim | Reclassify as qualitative summary | Recover reviews and count coded themes |
-| Review volume used as demand/revenue proxy | No transaction evidence | Withdraw commercial-performance inference | Obtain suitable sales/footfall evidence |
-| “Revealed preference” inferred from reviews | Text is reported experience, not choice behaviour | Replace with customer perceptions | Behavioural data needed for preference claim |
-| 45-second target and margin improvement asserted | No operational baseline or cost evidence | Treat target as unvalidated proposal | Pilot timing and unit economics |
-| EPOS/legal terms interpreted as operational disadvantage | Weak connection to customer outcomes | Omit from core positioning argument | Evidence of a specific operational effect |
-| Quotations in the original matrix lack review pointers | May be summaries rather than verbatim quotes | Do not republish as verified quotations | Locate exact review and context |
+## Completed checks
 
-## Validation record
+- Confirmed three live Google Maps listing identities and addresses. T4 is on Brushfield Street, not inside Liverpool Street station; Truedan is the Brunswick Centre listing.
+- Recorded 60 unique native review IDs and display ranks; excluded 6 records without customer text and 1 explicitly historical 2021 experience.
+- Separated customer text from owner replies, including replies attached to rating-only cards.
+- Expanded available long-review controls and preserved substantive mixed sentiment.
+- Checked that sentiment totals equal included n (18, 17, 18), that IDs are unique and that themes use the codebook.
+- Chart calculations are deterministic from the public CSV; chart code does not infer sentiment from star ratings.
 
-No completed review-level manual-validation log is claimed in this release. The audit above examines documentary consistency, not sentiment-label accuracy.
+These checks were performed by the assistant. **No human validation has yet occurred.** author_review.csv is intentionally unfilled; it is a worksheet, not a completed audit log.
 
-## Release gate for quantitative results
+## Classification decisions requiring author attention
 
-Verified store identities; defined collection window and sampling; traceable rows; exclusion log; human checks; final denominators; chart totals reconciled to included rows. Hypotheses that remain unsupported stay labelled as hypotheses.
+| Record | Decision | Reason / uncertainty |
+|---|---|---|
+| MILKSHA-11 | Exclude | Recently edited but explicitly describes a 2021 experience |
+| MILKSHA-16 | Mixed | Qualified praise; positive is a plausible alternative, quantified in findings.md |
+| TRUEDAN-04 | Mixed | Flavour and staff praise coexist with ice/portion concerns |
+| TRUEDAN-09 | No authenticity tag | Comparator is not explicit in displayed translated text |
+| TRUEDAN-12 | Mixed; capacity negative, staff positive | No explicit waiting statement; does not establish channel causality |
+| TRUEDAN-14 | Service/product negative; no price tag | Complaint centres on treatment and product experience, not willingness to pay |
+
+Nine included records used displayed Google translations. Original-language review remains pending. Native IDs improve traceability, but deleted/edited source text and the lack of a permanent raw-text archive limit exact reproduction.
+
+## Original claims revised
+
+Review volume does not establish demand, revenue or profitability. Reviews are expressed experience, not revealed purchasing preferences. Brand/location confounding remains. The 45-second target is unvalidated; EPOS/legal terms are omitted as weak evidence. Current franchise-scale and Taiwan footprint claims remain unverified. The original store-count inconsistencies are not resolved by new listing totals.
+
+Repeated staff mentions, product launches and promotional comments may shape recent review activity. These patterns merit caution but do not prove manipulation. A fixed-neighbourhood, longer-window study would be a separate design rather than a relabelling of this pilot.

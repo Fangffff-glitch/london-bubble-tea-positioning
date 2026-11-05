@@ -1,30 +1,26 @@
-# Coding definitions
+# Codebook v2: implemented pilot labels
 
-**Status: proposed definitions for new or reconstructed review-level analysis.**
+Overall sentiment: **positive** = favourable evaluation without a substantive negative element; **negative** = unfavourable evaluation without substantive praise; **mixed** = both praise and criticism/meaningful qualification; **neutral** = descriptive text without evaluative direction. Rating-only records are excluded, not neutral. Star ratings do not determine text sentiment.
 
-## Overall sentiment
-
-| Label | Rule |
+| Theme | Coding rule |
 |---|---|
-| Positive | Clear favourable evaluation without a substantive negative evaluation |
-| Negative | Clear unfavourable evaluation without a substantive positive evaluation |
-| Mixed | Both substantive favourable and unfavourable evaluations |
-| Neutral | Descriptive or informational text with no clear evaluative direction |
+| Taste and product experience | Explicit product praise/criticism, taste, texture, composition, portion preparation or temperature; generic approval without a product referent is not enough |
+| Staff and service | Courtesy, helpfulness, service quality and complaint handling |
+| Ingredients and authenticity | Explicit ingredient quality or authenticity/Taiwan comparison; do not infer from brand origin |
+| Price and value | Cost, value, included extras, portion-for-money or discounts; bag-charge discussion without a value complaint is not enough |
+| Speed and waiting | Explicit waiting, fast ordering or efficiency; a busy store alone is not enough |
+| Convenience and setting | Location access, seating or ordering arrangements; neutral description receives neutral polarity |
+| Promotions and capacity | Giveaways, loyalty schemes or promotion-related operational pressure |
 
-Unclear, unreadable or insufficient text receives a separate needs_review flag; do not force it into neutral. Star ratings are retained for context but do not determine the text label.
+Multiple themes are allowed. Each mentioned theme receives one positive/negative/mixed/neutral polarity. Count each theme once per review, not once per keyword. The seventh theme was added inductively when promotion/capacity comments appeared. It is not a predeclared hypothesis test. Packaging from the earlier proposed codebook had no relevant product-packaging evidence in the final pilot and is not plotted.
 
-## Themes (multiple labels allowed)
+## Explicit judgement calls
 
-| Theme | Include |
-|---|---|
-| Taste and texture | Flavour, sweetness, tea strength, pearl texture |
-| Ingredients and authenticity | Explicit ingredient claims or references to authenticity/home |
-| Price and value | Cost, portion value, discounts, worth paying |
-| Waiting and speed | Queue, preparation, pickup or perceived speed |
-| Staff and service | Courtesy, helpfulness, order accuracy |
-| Convenience and setting | Location, access, seating, ordering arrangements |
-| Packaging | Lids, leaks, transportability |
+- MILKSHA-16: qualified praise (pleasant but unremarkable) is mixed; also report a positive-label sensitivity case.
+- TRUEDAN-04: positive flavour/staff plus ice and portion/value concerns is mixed.
+- TRUEDAN-12: praise for staff plus promotion overload is mixed despite five stars; no explicit waiting label.
+- TRUEDAN-09: familiar taste with unspecified comparator does not receive the authenticity tag.
+- TRUEDAN-14: service and taste are negative; payment willingness means the bag-charge dispute is not coded as price dissatisfaction.
+- MILKSHA-11: excluded for explicitly historical 2021 experience, not because of sentiment.
 
-Assign positive, negative, mixed or neutral polarity to each mentioned theme. Record the supporting evidence span privately. Do not infer nationality, commuter identity, health outcomes or actual ingredient composition from a review.
-
-**Synthetic illustration, not collected data:** “The pearls tasted great, but the wait was too long.” → overall mixed; taste positive; waiting negative.
+Product or ingredient claims remain reviewer perceptions. No medical, financial or demographic conclusions are drawn. All labels are AI-coded and require author review before being described as human-validated.

@@ -26,3 +26,7 @@ Before the pilot, agree a minimum service improvement, a minimum acceptable cont
 - **Stop:** economic floor or a critical guardrail is breached, or no meaningful service improvement appears after the agreed test.
 
 The original 45-second aspiration is not adopted as a validated target. Ingredient changes require accurate customer information; improved speed should not rely on undisclosed substitutions or unsustainable staff workload.
+
+## Link to the November pilot
+
+The new review pilot motivates checking customer-service reliability and product experience together. Include promotion/delivery load in shift records rather than assuming it cannot affect physical service. Prioritise staff support and complaint handling alongside timing; the sample does not justify abandoning authentic products.
