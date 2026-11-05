@@ -2,8 +2,6 @@
 
 *AI-assisted sentiment and theme analysis to explore customer perceptions and competitive positioning in Zone 1.*
 
-**Ying-Hsuan Fang** · UCL Market Intelligence individual project · Portfolio extension: 5 November 2026
-
 ## The decision behind the research
 
 For a prospective Taiwanese bubble tea venture, how should authenticity, product experience, service and convenience shape its positioning in central London?
@@ -12,14 +10,17 @@ The original project proposed an authenticity-led venture, then questioned wheth
 
 ## At a glance
 
+**Listing totals are not the analysed sample.** Google Maps displays hundreds or thousands of reviews for these stores. This initial pilot inspected only 20 newest-displayed records per store, a collection cap chosen for the pilot—not a Google Maps limit. The charts currently cover 53 included text reviews, not all reviews.
+
 | | T4 · Liverpool Street | Milksha · Shaftesbury Ave | Truedan · Russell Square |
 |---|---:|---:|---:|
-| Newest-first candidate records | 20 | 20 | 20 |
-| Included customer-text reviews | 18 | 17 | 18 |
+| Google Maps total reviews (observed 5 Nov 2026) | 1,521 | 531 | 889 |
+| Records inspected in this initial pilot | 20 | 20 | 20 |
+| Text reviews included in charts | 18 | 17 | 18 |
 | Exclusions | 2 without text | 2 without text; 1 historical experience | 2 without text |
 | Positive / mixed / neutral / negative | 18 / 0 / 0 / 0 | 14 / 1 / 0 / 2 | 14 / 2 / 0 / 2 |
 
-**Status:** exploratory AI-coded pilot; author human review pending. These are selected reviews at three stores, not representative brand satisfaction scores. No data were invented to fill sentiment categories.
+**Status:** preliminary sampling and coding test; broader collection and author human review remain outstanding. These selected reviews at three stores are not representative brand satisfaction scores. The small sample is insufficient to establish comparative brand performance.
 
 ## 1 · Sentiment: preserve mixed experiences
 
