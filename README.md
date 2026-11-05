@@ -1,88 +1,109 @@
 # Positioning a Taiwanese Bubble Tea Brand in Central London
 
-*AI-assisted sentiment and theme analysis to explore customer perceptions and competitive positioning in Zone 1.*
+*Authenticity, product experience and service in a competitive Zone 1 market — evidence from 2,941 Google review records across three Taiwanese-origin brands.*
 
-## The decision behind the research
+## The business question
 
-For a prospective Taiwanese bubble tea venture, how should authenticity, product experience, service and convenience shape its positioning in central London?
+For a prospective Taiwanese bubble tea venture, what should distinguish the offer: authentic product experience, friendly service, reliable speed, or a combination?
 
-The original project proposed an authenticity-led venture, then questioned whether an efficiency-first model would perform better. This extension tests that story against a small, traceable set of publicly displayed customer reviews. **The pilot suggests preserving product appeal while testing service improvements; it does not establish that speed beats authenticity.**
+The original brief proposed an authenticity-led venture, then considered an efficiency-first pivot. This expanded analysis examines **every review/rating record displayed for the three selected stores at collection**, replacing the earlier 53-text-review pilot. The evidence supports testing service improvements while protecting product appeal; it does not establish that speed should replace authenticity.
 
-## At a glance
+## Complete coverage of the selected stores
 
-**Listing totals are not the analysed sample.** Google Maps displays hundreds or thousands of reviews for these stores. This initial pilot inspected only 20 newest-displayed records per store, a collection cap chosen for the pilot—not a Google Maps limit. The charts currently cover 53 included text reviews, not all reviews.
+| Google Maps snapshot · 5 November 2026 | T4 · Liverpool Street | Milksha · Shaftesbury Ave | Truedan · Russell Square | Total |
+|---|---:|---:|---:|---:|
+| Listing total | 1,521 | 531 | 889 | **2,941** |
+| Unique records collected | 1,521 | 531 | 889 | **2,941** |
+| Text reviews analysed | 1,323 | 418 | 634 | **2,375** |
+| Rating-only records | 198 | 113 | 255 | **566** |
 
-| | T4 · Liverpool Street | Milksha · Shaftesbury Ave | Truedan · Russell Square |
+Counts and per-star distributions reconcile with the listing snapshot. “Complete” refers to these three store listings on this date; it does not mean every branch, every platform, deleted reviews, or every customer's experience. Historical reviews are included. All 566 rating-only entries remain in the dataset and star-rating chart.
+
+## 1 · Sentiment beyond star ratings
+
+![Complete text sentiment analysis](sentiment_distribution.png)
+
+| Text sentiment | T4 | Milksha | Truedan |
 |---|---:|---:|---:|
-| Google Maps total reviews (observed 5 Nov 2026) | 1,521 | 531 | 889 |
-| Records inspected in this initial pilot | 20 | 20 | 20 |
-| Text reviews included in charts | 18 | 17 | 18 |
-| Exclusions | 2 without text | 2 without text; 1 historical experience | 2 without text |
-| Positive / mixed / neutral / negative | 18 / 0 / 0 / 0 | 14 / 1 / 0 / 2 | 14 / 2 / 0 / 2 |
+| Positive | 1,249 (94.4%) | 310 (74.2%) | 571 (90.1%) |
+| Mixed | 35 (2.6%) | 59 (14.1%) | 28 (4.4%) |
+| Neutral | 8 (0.6%) | 5 (1.2%) | 13 (2.1%) |
+| Negative | 30 (2.3%) | 44 (10.5%) | 20 (3.2%) |
+| Unclear | 1 (0.1%) | 0 (0.0%) | 2 (0.3%) |
 
-**Status:** preliminary sampling and coding test; broader collection and author human review remain outstanding. These selected reviews at three stores are not representative brand satisfaction scores. The small sample is insufficient to establish comparative brand performance.
+AI semantic coding retains explicit praise and criticism in the same review as **mixed**. It does not convert five stars into a positive label. Across the stores, 76 five-star text reviews received another label. These are descriptive store-level results, not representative brand satisfaction scores or a league table.
 
-## 1 · Sentiment: preserve mixed experiences
+## 2 · What customers talk about
 
-![Text sentiment distribution by store](sentiment_distribution.png)
+![Theme mention percentages and counts](theme_prevalence.png)
 
-The sample is mostly positive. However, four- and five-star reviews can still contain friction: the coding retains mixed experiences rather than converting stars into sentiment. T4's uniformly positive small sample should not be read as evidence that it has no dissatisfied customers.
+Themes use a published dictionary across all 2,375 texts. Each review can mention several topics. This measures vocabulary presence, not the importance or sentiment of an individual attribute.
 
-## 2 · Themes: the positioning story is more nuanced
+- **T4:** staff/service language appears in 842 reviews (63.6%), compared with speed/waiting in 128 (9.7%). The evidence is broader than a speed-only positioning story.
+- **Milksha:** dessert/bakery language appears in 142 reviews (34.0%). Its customer experience extends beyond bubble tea, so product comparisons must account for this different offer.
+- **Truedan:** authenticity/Taiwanese-origin language appears in 93 reviews (14.7%), versus 51 (12.2%) for Milksha and 17 (1.3%) for T4. This is a difference in expressed language, not proof of authenticity or willingness to pay.
 
-![Theme prevalence by store](theme_prevalence.png)
+Product/drink vocabulary is broad and can overlap with dessert comments. Staff names alone are not dictionary matches. [Definitions, dictionary and limitations](codebook.md).
 
-- **T4:** staff/service appears in 18 of 18 included reviews; explicit speed/efficiency appears in 3. This sample supports a service-led interpretation more strongly than a speed-only story.
-- **Milksha:** product experience appears in 15 of 17 reviews. Two negative records also raise complaint-handling issues; a four-star review is coded mixed for qualified product praise.
-- **Truedan:** explicit Taiwanese authenticity appears in 4 of 18 records. Waiting is criticised in one record, while another praises staff but criticises promotion-related capacity pressure. The latter is not counted as a waiting mention without explicit text.
+## 3 · Every rating is included
 
-## 3 · Implication: test the friction, protect the appeal
+![Star ratings for all 2941 records](rating_distribution.png)
 
-![Theme sentiment across the pilot](theme_sentiment.png)
+Ratings provide a second description of the same Google records, not independent triangulation. Review volume is not sales, footfall, market share or repeat purchase.
 
-Treat authenticity and reliable service as potentially complementary. Test preparation and order-handling improvements while tracking product quality, workload and contribution per cup. Do not infer sales, profitability or customer identity from review counts.
+## 4 · A check against historical weighting
 
-A promotion-related capacity comment also challenges the original decision to exclude delivery/digital effects entirely. It is a signal to investigate, not proof that a specific channel caused poor performance.
+![All-time versus broadly recent sentiment](recency_sensitivity.png)
 
-## Why these cases?
+Positive-only shares in the broadly recent text subset are 93.0% for T4 (n=158), 79.4% for Milksha (n=160) and 86.2% for Truedan (n=65). The pattern is not identical to the full history. Google displays relative publication/edit ages, so this is a sensitivity check, not a precise last-12-month visit study.
 
-The research initially considered a wider competitive set, then focused on Taiwanese-origin brands as contrasting positioning cases. The founder's selection rationale distinguished domestic Taiwanese brand identity from international franchise expansion. Current franchise counts and Taiwan store footprints have not been independently established and are not used to explain the results.
+## What this means for the venture
 
-| Case | Address confirmed on Google Maps | Scope |
+**Protect product distinctiveness; test service reliability.** Reviews describe authenticity, flavour, toppings and staff experience alongside operational friction. Three illustrative cases show why a simple “speed beats craft” conclusion overreaches:
+
+| Evidence example | Interpretation | Proposed response |
+|---|---|---|
+| T4-0269: praises drinks and staff, but reports an in-store wait alongside delivery-order pressure | Channels may compete for capacity | Record delivery load during peak-hour service tests |
+| MILKSHA-0041: praises pearls and a later explanation, but criticises taro texture and initial complaint handling | Product consistency and recovery both matter | Track remakes and complaint resolution alongside timing |
+| TRUEDAN-0108: praises tea, but reports a 27-minute wait and intent to leave if queues recur | Delay can threaten retention despite product appeal | Measure end-to-end median/p90 wait, not preparation time alone |
+
+These are paraphrased, unverified customer accounts. They illustrate mechanisms rather than estimate their prevalence. [Evidence audit](evidence_audit.md) · [90-day proceed/change/stop test](90_day_test_plan.md).
+
+## Why these brands and locations?
+
+The original idea considered a wider competitive set, then focused on Taiwanese-origin brands to explore contrasting brand identities and expansion models. The selection rationale distinguishes domestic Taiwanese familiarity from international franchise reach. Current Taiwan footprints and franchise counts have not been independently verified and are not used as explanatory variables.
+
+| Store | Address | Location context |
 |---|---|---|
 | T4 Liverpool Street | 8 Brushfield Street, London E1 6AN | Near Liverpool Street / Spitalfields; not inside the station |
 | Milksha | 65 Shaftesbury Avenue, London W1D 6LH | Chinatown / Soho |
 | Truedan Russell Square | Unit K1 Brunswick Square, London WC1N 1AW | Brunswick Centre |
 
-These locations span central London's Zone 1 context, not one fixed street or a controlled within-neighbourhood comparison. One store per brand confounds brand with location. The earlier Hampstead summary is not used in this new sample.
+**This is a central-London case comparison, not a controlled comparison on one street.** The initial ambition to study one competitive neighbourhood is not fulfilled by these locations. One store per brand confounds brand with location, customer mix, menu and time. No claim that these stores define London's “largest” competitive district is made.
 
-## Method in brief
+## Method and transparency
 
-On 5 November 2026, Google Maps was set to **Newest**, without keyword or rating filters. The first 20 displayed candidate records per store were inspected. Six rating-only entries and one record explicitly describing a 2021 experience were excluded; owner replies were not analysed. The resulting n is 53.
+1. Load the complete unfiltered Google Maps review lists in the default **Most relevant** order; expand available long customer texts and collect until unique IDs equal each listing total.
+2. Retain all dates and ratings. Separate customer text from owner replies; keep rating-only entries for rating analysis.
+3. Read every non-empty customer text with Codex and assign semantic sentiment. Apply a reproducible multi-label dictionary for topic mentions. These are different methods.
+4. Reconcile IDs, record counts, star distributions and labels; aggregate and render charts from the public coding table.
 
-Displayed dates are relative and may reflect edits, not visit dates. Included display ages range from hours to about a month, with different spans per store. Nine included records used Google-displayed Chinese-to-English translations. This is a recent-activity convenience pilot, not a fixed-window random sample.
+Google-displayed translations may affect wording. **All sentiment labels are AI-assigned and await independent human validation.** No accuracy score is claimed. AI review is not a substitute for a human audit.
 
-Codex assigned semantic sentiment and multiple themes from visible customer text, expanding available long-review controls. A second AI review checked ambiguous cases and exclusions. **This is not human validation.** The author-check sheet remains blank; no accuracy metric is claimed.
+## Explore the evidence
 
-## Evidence and reproducibility
+- [Complete public coding table — all 2,941 records](review_coding_public.csv)
+- [Collection and coverage checks](collection.md) · [Machine-readable checks](collection_checks.json)
+- [Codebook](codebook.md) · [Theme dictionary](theme_dictionary.json) · [AI workflow](ai_workflow.md)
+- [Detailed results and sensitivity analysis](findings.md) · [Computed totals](summary_counts.json)
+- [Examples and evidence audit](evidence_audit.md) · [Source register](source_register.md)
+- [90-day decision plan](90_day_test_plan.md) · [Blank human-validation worklist](author_review.csv)
+- [Chart reproduction script](build_charts.py) · [Theme coding script](code_themes.py)
 
-- [Public coding table: all 60 candidates, source IDs, exclusions and paraphrases](review_coding_public.csv)
-- [Sampling and collection](collection.md)
-- [Coding definitions](codebook.md)
-- [AI workflow and decision rules](ai_workflow.md)
-- [Evidence audit and sensitive classifications](evidence_audit.md)
-- [Results, counts and sensitivity note](findings.md)
-- [Source register](source_register.md)
-- [Proposed 90-day test](90_day_test_plan.md)
-- [Author validation worksheet](author_review.csv)
-- [Chart-building script](build_charts.py) · [Computed totals](summary_counts.json)
-
-The Python script only aggregates the published labels and renders charts; it does not run a sentiment model. It was generated with Codex assistance. Run `python3 build_charts.py` with matplotlib and numpy installed.
+Run `python3 build_charts.py` with matplotlib and numpy installed to reproduce the five charts from the published labels. The script does not run a sentiment model. Reviewer names, profiles and full review text are not republished; source IDs, listing links, classifications and selected paraphrases are provided. Rechecking original wording requires access to the live source, which may change.
 
 ## Contribution and limits
 
-The original individual project supplied the venture framing, competitor selection and strategic argument. The portfolio extension uses Codex for public-review collection, provisional semantic coding, evidence checks, chart code and documentation. The original brief declared Gemini analysis/writing support; its exact historical model and prompts remain unverified. NotebookLM retains research materials but is not an independent source of corroboration.
+The original individual project supplied the venture framing, case selection and strategic argument. Codex assisted with the expanded collection, full-text sentiment reading, dictionary design, aggregation, charts and documentation. Python code was generated with AI assistance; this portfolio does not claim an independently trained sentiment model or unaided Python development.
 
-Self-selection, repeated staff mentions, promotions, translations, review edits and store mix can affect these results. Review statements are unverified experiences, not established operational facts. Zero mentions do not prove absence. The new sample is separate from the February 2026 assignment evidence. No sales uplift, profitability, causal effect or completed operational pilot is claimed.
-
-Independent academic portfolio project; no affiliation with the brands. Reviewer names, profile images and full review text are not republished. The revision prioritises traceable evidence over reproducing the original conclusion.
+Full listing coverage removes the earlier 20-record-per-store cap, but not Google platform bias, self-selection, translation effects, historical changes, promotional activity or differences in review-writing habits. Repeated wording remains when IDs differ; short generic praise and staff-name mentions can shape the results. Customer allegations are not verified facts. A real business decision still needs observed queues, traffic and unit economics. Independent portfolio research; no affiliation with the brands.

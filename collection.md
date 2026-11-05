@@ -1,27 +1,41 @@
-# Collection: November 2026 pilot
+# Collection protocol and coverage
 
-## Implemented protocol
+## Scope
 
-Collected 5 November 2026 through the visible Google Maps interface. Each store was opened by name and address; Reviews → Sort → Newest was selected and the interface confirmed newest-to-oldest ordering. No sentiment keyword or star filter was applied. The first 20 displayed candidate cards per store formed the pilot frame. This small cap was a feasibility decision during collection, not a preregistered statistical design.
+Google Maps listings for T4 Liverpool Street, Milksha Shaftesbury Avenue and Truedan Russell Square, collected on 5 November 2026. This release supersedes the 53-text-review pilot retained in Git history.
 
-All 60 candidates remain in review_coding_public.csv. Six records had no customer text; owner responses beneath blank cards were not mistaken for reviews. MILKSHA-11 explicitly says the experience was written in 2021 despite a recent edit date, and is excluded. No replacement records were added. The other 53 were coded, including short general approval with no assignable theme.
-
-| Store | Candidates | No text | Historical | Included | Included displayed ages |
+| Store | Listing total | Unique captured IDs | Text | Rating only | Stars 5 / 4 / 3 / 2 / 1 |
 |---|---:|---:|---:|---:|---|
-| T4 Liverpool Street | 20 | 2 | 0 | 18 | 2 hours to 1 month |
-| Milksha Shaftesbury Avenue | 20 | 2 | 1 | 17 | 1 hour to 2 weeks; includes one edited record |
-| Truedan Russell Square | 20 | 2 | 0 | 18 | 2 days to 1 month |
+| T4 | 1,521 | 1,521 | 1,323 | 198 | 1,403 / 66 / 18 / 3 / 31 |
+| Milksha | 531 | 531 | 418 | 113 | 398 / 61 / 22 / 12 / 38 |
+| Truedan | 889 | 889 | 634 | 255 | 817 / 38 / 13 / 8 / 13 |
 
-This replaces the initial *proposed* 50-review/12-month protocol with a completed smaller recent-activity pilot. It does not pretend that equal counts create equal time exposure. Newest ordering may use update time, and actual visit dates are unknown for most records. Do not label these as all visits during a common month.
+The final unique-ID counts and per-star counts reconcile with the observed listing totals and rating breakdown. IDs are also unique across all three files. See [collection_checks.json](collection_checks.json).
 
-## Extraction and traceability
+## Actual extraction steps
 
-Visible customer-review text was distinguished from owner replies. Available See more controls were expanded. A Google native review ID, store listing URL, display rank and displayed relative date accompany every public row. T4 relative dates were translated from the Chinese interface into English without assigning exact calendar dates. Native review IDs identify records but are not claimed to be tested direct-review links. Locate records through the listing and metadata; live ordering may change.
+1. Open the listing's Reviews tab in Google Maps, using English display. The final complete collection used **Most relevant**, with no search term or star filter. An initial Newest loading attempt was abandoned; the final corpus is not a newest-first sample.
+2. Scroll the reviews panel repeatedly while retaining loaded review cards, until the number of unique customer review IDs matches the visible listing total.
+3. Expand available long-review text controls. Read rendered customer content, not hidden application state or private endpoints.
+4. Extract each rendered `div.jftiEf[data-review-id]`: ID from `data-review-id`; stars from `.kvMYJc`'s accessible label; relative date from `.rsqaWe`; **customer text only** from `.MyEned .wiI7pd`. Owner response text is outside this customer selector and is excluded. Selectors document this collection and may change.
+5. Save raw records locally and check unique IDs, rating values, presence of text and category totals. Raw file SHA-256 hashes are published; full source text stays outside this repository.
 
-The public dataset contains short paraphrases, not verbatim review exports. Full originals were inspected during this session but no permanent raw-text archive is bundled; future verification depends on the live source and is subject to edits/deletions. This limits exact replay of the coding. The chart calculation is reproducible from the published labels.
+No per-store cap, rating filter, language exclusion or recent-date exclusion was applied. The Milksha record explicitly referring to a 2021 experience, excluded from the earlier recent pilot, is now included as MILKSHA-0331. Different IDs with similar or identical wording are retained: they cannot be safely treated as the same reviewer. An edited review is one record, not a separate version history.
 
-## Language and scope
+## Time and language
 
-Google-displayed Chinese-to-English translations were used for MILKSHA-02/04 and TRUEDAN-07/08/09/10/12/13/15 (9 included rows). Original-language validation remains pending. Reviews of desserts are included because this is a store-experience study, not a drinks-only product test; different product mixes confound comparison.
+All displayed history was retained. Relative ages run from hours/months to years; T4 and Truedan include records displayed as six years old, and Milksha four years old. These are listing-history observations, not verified store-opening dates or visit dates. Historical changes in ownership/menu/service are not controlled.
 
-No reviewer names, photos, inferred demographics or owner replies enter the analysis. One candidate ID occurs once; similar comments by different reviewers are not arbitrarily deduplicated. Repeated staff praise can indicate sample concentration, but is not proof of incentivisation or manipulation.
+The public table preserves the exact displayed age. `under_one_year` means its label uses hours, days, weeks or months rather than years. It is a coarse display-age bucket, not an inferred calendar date. Google may show the edit age. There are 35 edited T4 records, 17 Milksha and 18 Truedan records. The historical MILKSHA-0331 example shows why recent display age need not mean recent experience.
+
+Google-displayed English translations were read where present, alongside untranslated text where displayed. Original language and translation accuracy were not exhaustively verified; no reliable translation count is asserted for this corpus.
+
+## What complete coverage means
+
+All 2,941 records visible through these three listings were captured and reconciled at collection. Deleted, hidden, later-added or inaccessible reviews, other branches, delivery-platform reviews and non-reviewing customers are outside the frame. Completeness within this snapshot does not establish representativeness of customers or London demand.
+
+## Public fields
+
+`record_id` is a project lookup key based on capture order, not chronological rank. `google_review_id` is the source identifier. `stars` and `displayed_age` are observed. `has_text`, `text_characters`, `text_sha256` and `display_age_band` are derived. `sentiment` is an AI judgement; ten 0/1 theme columns are dictionary results. `source_url` opens the relevant store listing, not a guaranteed deep link to an individual review.
+
+Names, profile links, images and full text are omitted from the published table. Selected paraphrases are in the audit. Source review IDs and content hashes support matching, but cannot reconstruct withheld text. Numerical outputs are reproducible from public labels; independently validating semantic coding requires source access.

@@ -1,68 +1,78 @@
-"""Rebuild descriptive charts from the published AI-coded pilot CSV.
-Chart code generated with Codex assistance. This script does not classify text.
-Run: python3 build_charts.py (requires matplotlib and numpy).
+"""Rebuild charts and verify counts from the public, already-coded review table.
+This script does not run a sentiment model. Python 3 + matplotlib + numpy.
 """
+import csv, json
 from pathlib import Path
-import csv,json
 from collections import Counter
+import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import numpy as np
-p=Path(__file__).resolve().parent
-rows=list(csv.DictReader((p/'review_coding_public.csv').open(encoding='utf-8')))
-assert len(rows)==60 and len({r['google_review_id'] for r in rows})==60
-valid=[r for r in rows if r['included']=='true']
-brands=['T4','Milksha','Truedan']
-places=['T4 · Liverpool Street','Milksha · Shaftesbury Ave','Truedan · Russell Square']
-labels=['positive','mixed','neutral','negative']
-colors={'positive':'#157F78','mixed':'#DC9A33','neutral':'#9AA4B2','negative':'#BE4B59'}
-themes=['Taste and product experience','Staff and service','Ingredients and authenticity','Price and value','Speed and waiting','Convenience and setting','Promotions and capacity']
-ns=[sum(r['brand']==b for r in valid) for b in brands]
-assert ns==[18,17,18]
-for r in valid:
- assert r['sentiment'] in labels
- assert set(json.loads(r['theme_polarity'])).issubset(themes)
-plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'axes.spines.top':False,'axes.spines.right':False,'axes.spines.left':False,'axes.spines.bottom':False,'figure.facecolor':'#FAFAF7','axes.facecolor':'#FAFAF7','text.color':'#172B3A','axes.labelcolor':'#172B3A','xtick.color':'#51616D','ytick.color':'#172B3A'})
-footer='Google Maps · collected 5 Nov 2026 · newest-first convenience pilot\nAI-coded; author human review pending. Store-specific, not representative brand rankings.'
-def save(fig,name):
- fig.savefig(p/name,dpi=170,facecolor=fig.get_facecolor());plt.close(fig)
-fig,ax=plt.subplots(figsize=(11,5.2));fig.subplots_adjust(left=.27,right=.96,top=.76,bottom=.25)
-left=np.zeros(3)
-for lab in labels:
- counts=np.array([sum(r['brand']==b and r['sentiment']==lab for r in valid) for b in brands]);vals=counts/np.array(ns)*100
- ax.barh(range(3),vals,left=left,color=colors[lab],height=.53,label=lab.title())
- for i,(v,c,l) in enumerate(zip(vals,counts,left)):
-  if c:ax.text(l+v/2,i,f'{c}\n{v:.1f}%',ha='center',va='center',color='white' if lab in ('positive','negative') else '#172B3A',fontsize=10,fontweight='bold')
- left+=vals
-ax.set_yticks(range(3),[f'{place}\ntext n = {n}' for place,n in zip(places,ns)]);ax.invert_yaxis();ax.set_xlim(0,100);ax.set_xticks([0,25,50,75,100],['0%','25%','50%','75%','100%']);ax.tick_params(length=0)
-fig.text(.04,.94,'How do the sampled reviews feel?',fontsize=21,fontweight='bold')
-fig.text(.04,.88,'Text sentiment, not star-rating buckets · 53 included reviews from 60 candidates',fontsize=11)
-ax.legend(ncol=4,loc='upper center',bbox_to_anchor=(.48,-.16),frameon=False)
-fig.text(.04,.045,footer,fontsize=9,color='#51616D');save(fig,'sentiment_distribution.png')
-counts=np.array([[sum(r['brand']==b and t in json.loads(r['theme_polarity']) for r in valid) for b in brands] for t in themes]);pct=counts/np.array(ns)*100
-fig,ax=plt.subplots(figsize=(11,7));fig.subplots_adjust(left=.34,right=.96,top=.78,bottom=.2)
-ax.imshow(pct,cmap='YlGnBu',vmin=0,vmax=100,aspect='auto')
-for i in range(len(themes)):
- for j in range(3):ax.text(j,i,f'{counts[i,j]}/{ns[j]} · {pct[i,j]:.0f}%',ha='center',va='center',color='white' if pct[i,j]>55 else '#172B3A',fontsize=12,fontweight='bold')
-ax.set_yticks(range(len(themes)),themes);ax.set_xticks(range(3),brands);ax.xaxis.tick_top();ax.tick_params(length=0,pad=10)
-fig.text(.04,.94,'What do customers choose to mention?',fontsize=21,fontweight='bold')
-fig.text(.04,.88,'Share of included text reviews mentioning each theme · multiple themes per review',fontsize=11)
-fig.text(.04,.11,'Counts are shown in every cell. Darker colour = higher share. Zero means absent in this sample, not unimportant.',fontsize=9)
-fig.text(.04,.035,footer,fontsize=9,color='#51616D');save(fig,'theme_prevalence.png')
-fig,ax=plt.subplots(figsize=(11,7));fig.subplots_adjust(left=.34,right=.96,top=.78,bottom=.25)
-left=np.zeros(len(themes));polcounts={}
-for lab in labels:
- vals=np.array([sum(json.loads(r['theme_polarity']).get(t)==lab for r in valid) for t in themes]);polcounts[lab]=vals.tolist()
- ax.barh(range(len(themes)),vals,left=left,height=.58,color=colors[lab],label=lab.title())
- for i,(v,l) in enumerate(zip(vals,left)):
-  if v:ax.text(l+v/2,i,str(v),ha='center',va='center',fontsize=10,fontweight='bold',color='white' if lab in ('positive','negative') else '#172B3A')
- left+=vals
-ax.set_yticks(range(len(themes)),themes);ax.invert_yaxis();ax.set_xlabel('Number of reviews mentioning the theme (all three stores pooled)');ax.tick_params(length=0)
-ax.legend(ncol=4,loc='upper center',bbox_to_anchor=(.4,-.2),frameon=False)
-fig.text(.04,.94,'Where does praise coexist with friction?',fontsize=21,fontweight='bold')
-fig.text(.04,.88,'Theme-level sentiment · one polarity per mentioned theme per review',fontsize=11)
-fig.text(.04,.04,footer+'\nPooling describes this pilot only; differences in store mix affect these totals.',fontsize=9,color='#51616D');save(fig,'theme_sentiment.png')
-summary={b:{'included':ns[i],**{lab:sum(r['brand']==b and r['sentiment']==lab for r in valid) for lab in labels}} for i,b in enumerate(brands)}
-(p/'summary_counts.json').write_text(json.dumps({'stores':summary,'theme_order':themes,'theme_counts_by_store':counts.tolist(),'pooled_theme_polarity':polcounts},indent=2)+'\n')
-print(json.dumps(summary,indent=2));print('Validated totals and generated three charts.')
+
+BASE=Path(__file__).parent
+rows=list(csv.DictReader((BASE/'review_coding_public.csv').open()))
+keys=['t4','milksha','truedan']; names=['T4 · Liverpool Street','Milksha · Shaftesbury Ave','Truedan · Russell Square']
+labels=['positive','mixed','neutral','negative','unclear']
+colors=['#227c70','#e3b04b','#91a0aa','#cb6658','#8368a0']
+plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'axes.spines.top':False,'axes.spines.right':False,'axes.spines.left':False,'axes.titleweight':'bold','figure.facecolor':'#faf9f5','axes.facecolor':'#faf9f5','savefig.facecolor':'#faf9f5'})
+texts={k:[r for r in rows if r['store']==k and r['has_text']=='1'] for k in keys}
+summary=json.loads((BASE/'summary_counts.json').read_text())
+assert len(rows)==2941 and len({r['google_review_id'] for r in rows})==2941
+for k in keys:
+ assert Counter(r['sentiment'] for r in texts[k])==summary[k]['sentiment']
+
+def finish(fig,filename,foot):
+ fig.text(.02,.025,foot,fontsize=9,color='#536268',va='bottom')
+ fig.savefig(BASE/filename,dpi=180,bbox_inches='tight');plt.close(fig)
+
+fig,ax=plt.subplots(figsize=(12,5.4));left=np.zeros(3)
+for label,c in zip(labels,colors):
+ counts=np.array([sum(r['sentiment']==label for r in texts[k]) for k in keys]);p=counts/np.array([len(texts[k]) for k in keys])*100
+ ax.barh(np.arange(3),p,left=left,color=c,label=label.title(),height=.56)
+ for i,v in enumerate(p):
+  if v>=4:ax.text(left[i]+v/2,i,f'{v:.1f}%',ha='center',va='center',color='white' if label=='positive' else '#253135',fontweight='bold')
+ left+=p
+ax.set(yticks=range(3),yticklabels=[f'{n}\ntext n = {len(texts[k]):,}' for k,n in zip(keys,names)],xlim=(0,100),xlabel='Share of text reviews (%)',title='Customer sentiment across the complete review snapshot')
+ax.invert_yaxis();ax.legend(ncol=5,loc='upper center',bbox_to_anchor=(.5,-.17),frameon=False)
+fig.subplots_adjust(left=.25,bottom=.27,top=.88)
+finish(fig,'sentiment_distribution.png','2,375 text reviews · AI semantic labels · Mixed retains both praise and criticism.\n566 rating-only records are excluded from text sentiment, not from the dataset. Google Maps · 5 Nov 2026.')
+
+themes={'drink_product':'Product / drink vocabulary','staff_service':'Staff / service','speed_waiting':'Speed / waiting','authenticity_origin':'Authenticity / Taiwanese origin','price_value':'Price / value / promotions','customisation':'Customisation','setting_location':'Setting / location','desserts_bakery':'Desserts / bakery','digital_delivery':'Digital ordering / delivery','repeat_loyalty':'Repeat / loyalty language'}
+matrix=np.array([[sum(int(r[t]) for r in texts[k])/len(texts[k])*100 for k in keys] for t in themes])
+fig,ax=plt.subplots(figsize=(12,7.6));im=ax.imshow(matrix,cmap='YlGnBu',vmin=0,vmax=85,aspect='auto')
+for y,t in enumerate(themes):
+ for x,k in enumerate(keys):
+  count=sum(int(r[t]) for r in texts[k]);ax.text(x,y,f'{matrix[y,x]:.1f}%  ·  {count:,}',ha='center',va='center',color='white' if matrix[y,x]>45 else '#253135')
+ax.set(yticks=range(len(themes)),yticklabels=list(themes.values()),xticks=range(3),xticklabels=['T4\nn=1,323','Milksha\nn=418','Truedan\nn=634'],title='What customers mention')
+ax.tick_params(length=0);fig.subplots_adjust(left=.32,bottom=.16,top=.9,right=.97)
+finish(fig,'theme_prevalence.png','Dictionary-detected mentions: % of each store’s text reviews, followed by count. Multi-label; totals exceed 100%.\nMentions show topics, not sentiment, importance or verified facts. Product vocabulary overlaps with desserts.')
+
+fig,ax=plt.subplots(figsize=(12,5.4));left=np.zeros(3)
+for star,c in zip([5,4,3,2,1],['#227c70','#80b3a1','#d7c47c','#df966a','#cb6658']):
+ ns=np.array([sum(r['store']==k for r in rows) for k in keys]);counts=np.array([sum(r['store']==k and int(r['stars'])==star for r in rows) for k in keys]);p=counts/ns*100
+ ax.barh(range(3),p,left=left,color=c,label=f'{star} stars',height=.56)
+ for i,v in enumerate(p):
+  if v>=5:ax.text(left[i]+v/2,i,f'{v:.1f}%',ha='center',va='center',color='white' if star==5 else '#253135')
+ left+=p
+ax.set(yticks=range(3),yticklabels=[f'{n}\nall records n = {summary[k]["collected"]:,}' for k,n in zip(keys,names)],xlim=(0,100),xlabel='Share of all review/rating records (%)',title='Star ratings include every collected record')
+ax.invert_yaxis();ax.legend(ncol=5,loc='upper center',bbox_to_anchor=(.5,-.17),frameon=False);fig.subplots_adjust(left=.25,bottom=.27,top=.88)
+finish(fig,'rating_distribution.png','2,941 records, including 566 without customer text · Google Maps snapshot · 5 Nov 2026.\nStar ratings and text sentiment measure different things; these are three stores, not whole-brand rankings.')
+
+fig,ax=plt.subplots(figsize=(12,5.7));y=np.arange(3)
+for offset,recent,c,name in [(-.18,False,'#227c70','All text reviews'),(.18,True,'#6f91b0','Displayed age under one year')]:
+ for i,k in enumerate(keys):
+  rr=[r for r in texts[k] if not recent or r['display_age_band']=='under_one_year'];p=sum(r['sentiment']=='positive' for r in rr)/len(rr)*100
+  ax.barh(i+offset,p,height=.32,color=c,label=name if i==0 else None);ax.text(p+1,i+offset,f'{p:.1f}% (n={len(rr):,})',va='center',fontsize=10)
+ax.set(yticks=y,yticklabels=names,xlim=(0,117),xlabel='Positive-only text sentiment (%)',title='Does the broad recency check change the picture?')
+ax.set_xticks([0,20,40,60,80,100]);ax.invert_yaxis();ax.legend(loc='upper center',bbox_to_anchor=(.5,-.14),ncol=2,frameon=False);fig.subplots_adjust(left=.25,bottom=.27,top=.88)
+finish(fig,'recency_sensitivity.png','Recent means Google displays hours/days/weeks/months, not a precise 12-month visit window.\nEdited dates and historical experiences can fall in the recent bucket. No significance or causal claim.')
+
+# Keep the existing filename but correct its interpretation explicitly.
+fig,ax=plt.subplots(figsize=(12,7));selected=['staff_service','speed_waiting','authenticity_origin','price_value','desserts_bakery','digital_delivery'];left=np.zeros(len(selected))
+for label,c in zip(labels,colors):
+ rr=[[r for r in rows if r[t]=='1'] for t in selected];p=np.array([sum(r['sentiment']==label for r in v)/len(v)*100 for v in rr])
+ ax.barh(range(len(selected)),p,left=left,color=c,label=label.title(),height=.64);left+=p
+ax.set(yticks=range(len(selected)),yticklabels=[f'{themes[t]} (n={sum(r[t]=="1" for r in rows)})' for t in selected],xlim=(0,100),xlabel='Whole-review sentiment (%)',title='Sentiment of reviews mentioning each topic')
+ax.invert_yaxis();ax.legend(ncol=5,loc='upper center',bbox_to_anchor=(.5,-.12),frameon=False);fig.subplots_adjust(left=.34,bottom=.23,top=.9)
+finish(fig,'theme_sentiment.png','Pooled across stores; overlapping groups. These are whole-review labels, NOT sentiment about the named topic.\nFor example, praise for tea plus criticism of service is mixed in every topic the review mentions.')
+print('Verified 2,941 records and generated five charts.')

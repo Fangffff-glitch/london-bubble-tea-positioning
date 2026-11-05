@@ -1,21 +1,38 @@
-# AI use: historical brief versus new pilot
+# AI workflow and provenance
 
-## Historical brief
+## Roles
 
-The submitted assignment declares Gemini 1.5 Flash for semantic analysis and proofreading. Historical prompts/model provenance have not been independently recovered. NotebookLM stores research inputs and derived notes; its summary is not independent verification.
+The project author supplied the business question, Taiwanese-brand case selection and original strategic framing. In this extension, Codex collected rendered public review records, read every non-empty text, assigned sentiment, designed and checked a theme dictionary, generated Python aggregation/chart code and drafted documentation. This is AI-assisted research, not a claim of unaided coding or a custom-trained sentiment model.
 
-## New pilot, 5 November 2026
+The original assignment declared Gemini support. Historical prompts and precise historical model versions have not been independently recovered. NotebookLM research materials are context, not independent corroboration. No external sentiment API was run for this extension.
 
-Codex (GPT-6-based assistant in this task) operated the public Google Maps UI, inspected 60 candidate cards, expanded long reviews, excluded seven records and assigned provisional labels to 53 customer texts. Labels were semantic judgements in the assistant conversation, not predictions from a separately trained model or an external API batch. No sampling temperature, model checkpoint or exact reproducible inference configuration was recorded.
+## Executed sentiment workflow
 
-The assistant checked owner-response leakage, exclusion rules, ambiguous polarity and theme boundaries in a second reading. This is **AI self-review, not a second human coder or independent validation**. Author review is pending in author_review.csv. Python code then aggregates fixed labels and renders charts. No Python sentiment classifier or model-accuracy statistic is claimed.
+1. Read all text in batches, retaining one-based capture indices linked to stable Google review IDs.
+2. Apply the codebook semantically. For bookkeeping, a batch's reviewed texts use positive as the stored default with explicit negative/mixed/neutral/unclear exceptions; this follows reading the batch, not an automatic positive assumption for unseen records.
+3. Keep blank-text records outside text sentiment; preserve every record in the public table.
+4. Recheck selected ambiguous examples and verify label coverage. All 2,375 texts have exactly one sentiment label. A second independent annotator was not used.
 
-## Coding instruction specification used for this extension
+The final totals are 2,130 positive, 122 mixed, 26 neutral, 94 negative and 3 unclear. No sentiment is inferred from stars. 76 five-star text reviews have a non-positive-only label.
 
-Read only the displayed customer text and the codebook. Assign overall positive/negative/mixed/neutral sentiment; assign multiple explicit themes with polarity. Preserve positive and negative aspects within the same review. Do not infer commuter status, nationality, actual ingredients or commercial outcomes. Do not classify owner replies as customer text. Exclude absent text and explicitly historical out-of-scope experience; record the reason. Flag ambiguous classifications and keep source identity and date metadata.
+## Reusable coding instruction
 
-This is a documented instruction specification, not a fabricated verbatim historical Gemini prompt or a standalone prompt log. The public table contains the resulting labels, concise paraphrases and judgement notes. Changes from the initial proposed protocol are documented in collection.md.
+The following is a consolidated specification for reproducing the approach, **not a verbatim historical prompt transcript**:
 
-## Remaining author review
+> Read the entire customer text. Assign one of positive, mixed, neutral, negative or unclear using the codebook. Preserve explicit positive and negative experiences as mixed, including recovery. Do not infer sentiment from stars, other reviews or the desired business conclusion. Evaluate the target store, keep uncertainty visible, and do not invent missing text. Return the review ID and label; keep rating-only entries not applicable.
 
-Check all 53 rows against their sources if feasible, especially translated and mixed records; record any changes without overwriting the AI label. No author decisions have been filled on their behalf. Re-run build_charts.py if labels change. Author-AI agreement would measure consistency with that reviewer, not validated classifier accuracy.
+Theme flags are generated separately by [code_themes.py](code_themes.py), using [theme_dictionary.json](theme_dictionary.json). They are not model-generated semantic aspect judgements. The script expects locally held raw JSON; this repository does not redistribute that full text.
+
+## Verification actually completed
+
+- All captured IDs are unique and match listing totals; per-star totals reconcile.
+- All non-empty texts were read for sentiment and included in aggregation.
+- Rating-only entries remain identifiable; no sentiment categories were filled with invented data.
+- Selected exceptions and the anticipatory-wait false positive were checked against raw wording.
+- Charts are regenerated from public labels and checked visually.
+
+**Human validation remains pending.** The blank `author_review.csv` worklist selects up to ten records per store/label in capture order, including all scarce neutral/unclear cases. It is a stratified audit aid, not a random accuracy-test sample. Record disagreements and corrections before reporting any accuracy figure. An independent random sample would be needed for a defensible population-level accuracy estimate.
+
+## Reproducibility boundary
+
+Public CSV → counts/charts is reproducible with `python3 build_charts.py`. Raw local text → theme flags is reproducible with the dictionary and `code_themes.py`. Raw text → semantic sentiment is a judgement process and may differ on rerun. The private raw files are hashed in `collection_checks.json`; content hashes are integrity checks, not access to the source wording.

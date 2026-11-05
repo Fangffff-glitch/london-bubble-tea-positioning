@@ -1,26 +1,42 @@
-# Codebook v2: implemented pilot labels
+# Sentiment and theme codebook
 
-Overall sentiment: **positive** = favourable evaluation without a substantive negative element; **negative** = unfavourable evaluation without substantive praise; **mixed** = both praise and criticism/meaningful qualification; **neutral** = descriptive text without evaluative direction. Rating-only records are excluded, not neutral. Star ratings do not determine text sentiment.
+## Unit of analysis
 
-| Theme | Coding rule |
+One unique Google customer-review ID at one selected store. Text may cover several visits or products; the whole displayed customer text is one unit. Owner replies are excluded. Rating-only records have `sentiment=not_applicable` and all theme flags 0; this means unavailable text, not neutral sentiment.
+
+## Semantic sentiment
+
+Every one of the 2,375 non-empty texts was read by Codex in batches. Stars were not used to determine the label.
+
+| Label | Rule |
 |---|---|
-| Taste and product experience | Explicit product praise/criticism, taste, texture, composition, portion preparation or temperature; generic approval without a product referent is not enough |
-| Staff and service | Courtesy, helpfulness, service quality and complaint handling |
-| Ingredients and authenticity | Explicit ingredient quality or authenticity/Taiwan comparison; do not infer from brand origin |
-| Price and value | Cost, value, included extras, portion-for-money or discounts; bag-charge discussion without a value complaint is not enough |
-| Speed and waiting | Explicit waiting, fast ordering or efficiency; a busy store alone is not enough |
-| Convenience and setting | Location access, seating or ordering arrangements; neutral description receives neutral polarity |
-| Promotions and capacity | Giveaways, loyalty schemes or promotion-related operational pressure |
+| Positive | Explicit favourable evaluation, recommendation, thanks or positive experience, without substantive criticism of the target store experience |
+| Mixed | Explicit praise and criticism coexist, including good tea with poor service, price concerns despite enjoyment, or an initial failure followed by recovery |
+| Negative | Explicit dissatisfaction or criticism without substantive praise of the target experience |
+| Neutral | Factual/descriptive content without clear evaluation, including some identity-only or similarity-only statements |
+| Unclear | Insufficient or ambiguous evaluative meaning; used for an ambiguous emoji, unclear phrasing or an implausible joke |
 
-Multiple themes are allowed. Each mentioned theme receives one positive/negative/mixed/neutral polarity. Count each theme once per review, not once per keyword. The seventh theme was added inductively when promotion/capacity comments appeared. It is not a predeclared hypothesis test. Packaging from the earlier proposed codebook had no relevant product-packaging evidence in the final pilot and is not plotted.
+Mere queues, small size or a busy shop are not automatically negative. A complaint about waiting, space or price is. Contrasts against other businesses do not automatically make a review mixed. Mild preferences and implied dissatisfaction require judgement, so marginal cases remain suitable for human checking. All genuine text, including brief comments and emojis, stays in the denominator.
 
-## Explicit judgement calls
+The final three unclear cases are T4-1320, TRUEDAN-0349 and TRUEDAN-0369. They are not forced into neutral. Whole-review labels cannot be interpreted as aspect-specific sentiment.
 
-- MILKSHA-16: qualified praise (pleasant but unremarkable) is mixed; also report a positive-label sensitivity case.
-- TRUEDAN-04: positive flavour/staff plus ice and portion/value concerns is mixed.
-- TRUEDAN-12: praise for staff plus promotion overload is mixed despite five stars; no explicit waiting label.
-- TRUEDAN-09: familiar taste with unspecified comparator does not receive the authenticity tag.
-- TRUEDAN-14: service and taste are negative; payment willingness means the bag-charge dispute is not coded as price dissatisfaction.
-- MILKSHA-11: excluded for explicitly historical 2021 experience, not because of sentiment.
+## Dictionary-based multi-label themes
 
-Product or ingredient claims remain reviewer perceptions. No medical, financial or demographic conclusions are drawn. All labels are AI-coded and require author review before being described as human-validated.
+All texts are matched case-insensitively against the exact regular expressions in [theme_dictionary.json](theme_dictionary.json). A theme is 1 if at least one match exists; repeated words do not increase the count. Denominator = all text reviews at that store. Several themes may be 1 for one review; percentages can total more than 100%.
+
+| Field | What is detected | Important limits |
+|---|---|---|
+| drink_product | Drink/product vocabulary, ingredients, taste, flavour and texture | Broad: generic “delicious” and dessert comments can match; not a drink-only quality score |
+| staff_service | Staff/service terms, friendliness, helpfulness and conduct | Names alone do not match; inflections and implicit references can be missed |
+| speed_waiting | Queue/wait, fast/slow/efficient and time vocabulary | Includes favourable and unfavourable mentions; some time references may be incidental |
+| authenticity_origin | Authenticity, Taiwan/Taiwanese and home/homesickness language | Origin mentions do not necessarily praise authenticity or imply willingness to pay |
+| price_value | Price, value, cost, discounts and promotion language | Includes both complaints and praise; not actual price benchmarking |
+| customisation | Sugar/ice levels, percentages, adjustment and milk alternatives | Mentions are not proof of availability today |
+| setting_location | Atmosphere, seating, cleanliness and location context | Combines environment and accessibility; not a measured location score |
+| desserts_bakery | Ice cream, cakes, desserts, bakery and related items | Can overlap drinks, such as ice-cream toppings or sago |
+| digital_delivery | Delivery, online/app, kiosk/machine and QR vocabulary | Includes ordering convenience as well as delivery; literal matches can be incidental |
+| repeat_loyalty | Return intentions, loyalty and favourite/go-to language | Not observed repeat-purchase rate or customer lifetime value |
+
+The speed detector removes selected anticipatory expressions such as “can't wait for my next visit” before matching. T4-0364 was checked as a false positive and corrected. “Can't wait any longer to order” is retained as waiting friction. The precise preprocessing is in [code_themes.py](code_themes.py).
+
+The dictionary is transparent and reproducible but incomplete. It is **not** a second AI semantic classification of every theme, a validated classifier, or a measure of causal importance. Google translation may change matches. Topic counts are directional indicators for reading and testing; they do not prove the topics customers value most.

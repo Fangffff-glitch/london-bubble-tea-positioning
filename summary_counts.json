@@ -1,109 +1,127 @@
 {
-  "stores": {
-    "T4": {
-      "included": 18,
-      "positive": 18,
-      "mixed": 0,
-      "neutral": 0,
-      "negative": 0
+  "t4": {
+    "name": "T4 Liverpool Street",
+    "listing_total": 1521,
+    "collected": 1521,
+    "text_reviews": 1323,
+    "rating_only": 198,
+    "stars": {
+      "1": 31,
+      "2": 3,
+      "3": 18,
+      "4": 66,
+      "5": 1403
     },
-    "Milksha": {
-      "included": 17,
-      "positive": 14,
-      "mixed": 1,
-      "neutral": 0,
-      "negative": 2
+    "sentiment": {
+      "positive": 1249,
+      "negative": 30,
+      "mixed": 35,
+      "neutral": 8,
+      "unclear": 1
     },
-    "Truedan": {
-      "included": 18,
-      "positive": 14,
+    "themes": {
+      "drink_product": 823,
+      "staff_service": 842,
+      "speed_waiting": 128,
+      "authenticity_origin": 17,
+      "price_value": 45,
+      "customisation": 32,
+      "setting_location": 59,
+      "desserts_bakery": 1,
+      "digital_delivery": 16,
+      "repeat_loyalty": 158
+    },
+    "recent_text_sentiment": {
+      "positive": 147,
+      "negative": 7,
       "mixed": 2,
-      "neutral": 0,
-      "negative": 2
-    }
+      "neutral": 2
+    },
+    "recent_text_n": 158,
+    "nonpositive_with_5_stars": 20,
+    "edited_records": 35
   },
-  "theme_order": [
-    "Taste and product experience",
-    "Staff and service",
-    "Ingredients and authenticity",
-    "Price and value",
-    "Speed and waiting",
-    "Convenience and setting",
-    "Promotions and capacity"
-  ],
-  "theme_counts_by_store": [
-    [
-      7,
-      15,
-      12
-    ],
-    [
-      18,
-      4,
-      11
-    ],
-    [
-      0,
-      1,
-      4
-    ],
-    [
-      1,
-      2,
-      3
-    ],
-    [
-      3,
-      1,
-      1
-    ],
-    [
-      0,
-      1,
-      1
-    ],
-    [
-      0,
-      2,
-      2
-    ]
-  ],
-  "pooled_theme_polarity": {
-    "positive": [
-      29,
-      30,
-      5,
-      4,
-      4,
-      1,
-      3
-    ],
-    "mixed": [
-      2,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ],
-    "neutral": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      1,
-      0
-    ],
-    "negative": [
-      3,
-      3,
-      0,
-      2,
-      1,
-      0,
-      1
-    ]
+  "milksha": {
+    "name": "Milksha Shaftesbury Avenue",
+    "listing_total": 531,
+    "collected": 531,
+    "text_reviews": 418,
+    "rating_only": 113,
+    "stars": {
+      "1": 38,
+      "2": 12,
+      "3": 22,
+      "4": 61,
+      "5": 398
+    },
+    "sentiment": {
+      "positive": 310,
+      "mixed": 59,
+      "negative": 44,
+      "neutral": 5
+    },
+    "themes": {
+      "drink_product": 339,
+      "staff_service": 120,
+      "speed_waiting": 39,
+      "authenticity_origin": 51,
+      "price_value": 56,
+      "customisation": 26,
+      "setting_location": 33,
+      "desserts_bakery": 142,
+      "digital_delivery": 11,
+      "repeat_loyalty": 56
+    },
+    "recent_text_sentiment": {
+      "positive": 127,
+      "mixed": 19,
+      "negative": 13,
+      "neutral": 1
+    },
+    "recent_text_n": 160,
+    "nonpositive_with_5_stars": 27,
+    "edited_records": 17
+  },
+  "truedan": {
+    "name": "Truedan Russell Square",
+    "listing_total": 889,
+    "collected": 889,
+    "text_reviews": 634,
+    "rating_only": 255,
+    "stars": {
+      "1": 13,
+      "2": 8,
+      "3": 13,
+      "4": 38,
+      "5": 817
+    },
+    "sentiment": {
+      "positive": 571,
+      "negative": 20,
+      "neutral": 13,
+      "mixed": 28,
+      "unclear": 2
+    },
+    "themes": {
+      "drink_product": 489,
+      "staff_service": 197,
+      "speed_waiting": 44,
+      "authenticity_origin": 93,
+      "price_value": 56,
+      "customisation": 36,
+      "setting_location": 36,
+      "desserts_bakery": 14,
+      "digital_delivery": 13,
+      "repeat_loyalty": 88
+    },
+    "recent_text_sentiment": {
+      "positive": 56,
+      "negative": 6,
+      "mixed": 2,
+      "neutral": 1
+    },
+    "recent_text_n": 65,
+    "nonpositive_with_5_stars": 29,
+    "edited_records": 18
   }
 }

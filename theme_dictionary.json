@@ -1,0 +1,12 @@
+{
+  "drink_product": "\\b(tea|teas|boba|bubble|bubbles|drink|drinks|milk|milkshake|smoothie|smoothies|tapioca|pearl|pearls|taro|matcha|oolong|jasmine|flavou?r|flavou?rs|taste|tastes|tasty|delicious|sweet|sweetness|chewy|texture|ingredient|ingredients)\\b",
+  "staff_service": "\\b(staff|service|server|servers|cashier|barista|bob arista|bobarista|employee|employees|worker|workers|team|manager|friendly|friendliest|helpful|welcoming|polite|rude|rudeness|patient|patience|attentive|accommodating|kind|kindness)\\b",
+  "speed_waiting": "\\b(queue|queues|queuing|queueing|queued|waiting|waited|quick|quickly|fast|faster|slow|slowly|efficient|efficiency|minutes?|mins?)\\b|\\b(long|short|little|no|a|the|to|worth|didn.t|did not) wait\\b|\\bwait (time|times|for|long|a|was|is|at|too|so|quite|to order)\\b",
+  "authenticity_origin": "\\b(authentic|authenticity|taiwan|taiwanese|hometown|homesick|homesickness)\\b|\\btaste(s)? (of|like) home\\b|\\bhome.?town\\b|\\bback home\\b|\u53f0\u7063|\u53f0\u6e7e",
+  "price_value": "\u00a3|\\b(price|prices|pricey|pricy|expensive|overpriced|cheap|cheaper|cheapest|affordable|value|money|cost|costs|priced|pricing|worth|discount|discounts|deal|deals|promotion|promotions|voucher|vouchers|free)\\b",
+  "customisation": "\\b(sugar|sweetness|ice) (level|levels|ratio|option|options)\\b|\\b(customi[sz]e|customi[sz]ed|customi[sz]able|customi[sz]ation|customi[sz]ations|adjust|adjustable|oat milk|vegan|dairy.free|non.dairy|alternative milk|no ice|less ice|no sugar|half sugar|half ice)\\b|\\b\\d+\\s*%|\\b\\d+ percent\\b",
+  "setting_location": "\\b(atmosphere|vibe|vibes|ambience|ambiance|decor|decorated|decoration|interior|seating|seats|seat|tables|chairs|terrace|patio|location|located|station|university|ucl|school|clean|tidy|cramped|crowded|space)\\b",
+  "desserts_bakery": "\\b(ice.?cream|soft.?serve|gelato|dessert|desserts|cake|cakes|cheesecake|crepe|crepes|pastry|pastries|bakery|bread|mochi|motchi|puff|puffs|puffy|ho fun|sago|rusk|cookie|cookies)\\b",
+  "digital_delivery": "\\b(delivery|deliveries|delivered|ubereats|ubereat|uber|deliveroo|online|app|apps|kiosk|kiosks|self.service|self.checkout|self.ordering|machine|machines|touch.?screen|qr|digital)\\b",
+  "repeat_loyalty": "\\b(loyal|loyalty|regular|regularly|repeat|repurchased|go.to|favourite|favorite)\\b|\\b(come|coming|visit|visiting|be|go|going|get) back\\b|\\b(come|visit|buy|order|drink|go) (here |it |this )?(again|every|weekly|daily)\\b|\\b(next time|return|returning|revisit|revisiting)\\b"
+}

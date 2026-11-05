@@ -1,0 +1,13 @@
+{
+  "unique_review_ids": 2941,
+  "collected": 2941,
+  "text_reviews": 2375,
+  "all_listing_counts_reconciled": true,
+  "all_text_labels_present": true,
+  "blank_text_not_labelled": true,
+  "raw_files_sha256": {
+    "t4": "212e520f7f91089224a3dfeb0657932ac10f5e81ade2a1ed4d43465bdad5a557",
+    "milksha": "90905f2338010f6024123b1d0a5f76ece59ddf7d4fbc22e6ba6497ccd03959b0",
+    "truedan": "ef1e99640b5494a86ee3e335c521f83a92dffe04994ee8244611ff534b449da0"
+  }
+}
