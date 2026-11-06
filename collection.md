@@ -1,41 +1,65 @@
-# Collection protocol and coverage
+# Collection and time-window protocol
 
-## Scope
+The underlying snapshot was collected on 5 November 2026. The analysis frame was revised on 6 November 2026, without adding new reviews. Main outputs use recent subsets; collection coverage and analytical inclusion are distinct.
 
-Google Maps listings for T4 Liverpool Street, Milksha Shaftesbury Avenue and Truedan Russell Square, collected on 5 November 2026. This release supersedes the 53-text-review pilot retained in Git history.
+## Time period — what is actually included?
 
-| Store | Listing total | Unique captured IDs | Text | Rating only | Stars 5 / 4 / 3 / 2 / 1 |
-|---|---:|---:|---:|---:|---|
-| T4 | 1,521 | 1,521 | 1,323 | 198 | 1,403 / 66 / 18 / 3 / 31 |
-| Milksha | 531 | 531 | 418 | 113 | 398 / 61 / 22 / 12 / 38 |
-| Truedan | 889 | 889 | 634 | 255 | 817 / 38 / 13 / 8 / 13 |
+**Snapshot: 5 November 2026. Revision: 6 November 2026. No new reviews were collected for this revision.**
 
-The final unique-ID counts and per-star counts reconcile with the observed listing totals and rating breakdown. IDs are also unique across all three files. See [collection_checks.json](collection_checks.json).
+| Role | Intended calendar period | Operational rule applied to saved Google display ages |
+|---|---|---|
+| Main analysis | Approximately 5 Nov 2024–5 Nov 2026 | Hours/days/weeks/months ago, plus “a year ago”; exclude “2 years ago” and older |
+| Sensitivity comparison | Approximately 5 Nov 2025–5 Nov 2026 | Hours/days/weeks/months ago only; exclude all year-labelled records |
+| Historical appendix | All captured listing history through 5 Nov 2026 | Retain all 2,941 original records for traceability |
 
-## Actual extraction steps
+**These are relative-display-age proxies, not verified exact 24- or 12-month windows or visit dates.** The saved data contain rounded relative labels, sometimes edit ages. We do not assign invented calendar dates. Boundary reviews may be misclassified if Google's rounding differs from the assumed age bands. MILKSHA-0331 explicitly describes a 2021 experience and is excluded from both recent windows, even though its displayed age is recent. Other undisclosed historical experiences may remain. Edited records stay in the main analysis but are flagged and tested separately.
 
-1. Open the listing's Reviews tab in Google Maps, using English display. The final complete collection used **Most relevant**, with no search term or star filter. An initial Newest loading attempt was abandoned; the final corpus is not a newest-first sample.
-2. Scroll the reviews panel repeatedly while retaining loaded review cards, until the number of unique customer review IDs matches the visible listing total.
-3. Expand available long-review text controls. Read rendered customer content, not hidden application state or private endpoints.
-4. Extract each rendered `div.jftiEf[data-review-id]`: ID from `data-review-id`; stars from `.kvMYJc`'s accessible label; relative date from `.rsqaWe`; **customer text only** from `.MyEned .wiI7pd`. Owner response text is outside this customer selector and is excluded. Selectors document this collection and may change.
-5. Save raw records locally and check unique IDs, rating values, presence of text and category totals. Raw file SHA-256 hashes are published; full source text stays outside this repository.
+| Analysis frame | T4 records / texts | Milksha records / texts | Truedan records / texts | Total records / texts |
+|---|---:|---:|---:|---:|
+| Main: approximately two years | 776 / 712 | 276 / 230 | 222 / 170 | 1,274 / 1,112 |
+| Comparison: approximately one year | 170 / 158 | 185 / 159 | 84 / 65 | 439 / 382 |
+| Full history: archive only | 1,521 / 1,323 | 531 / 418 | 889 / 634 | 2,941 / 2,375 |
 
-No per-store cap, rating filter, language exclusion or recent-date exclusion was applied. The Milksha record explicitly referring to a 2021 experience, excluded from the earlier recent pilot, is now included as MILKSHA-0331. Different IDs with similar or identical wording are retained: they cannot be safely treated as the same reviewer. An edited review is one record, not a separate version history.
+## How the source corpus was collected
 
-## Time and language
+The complete unfiltered Reviews lists were loaded in Google Maps in default **Most relevant** order. Available long customer texts were expanded. Rendered review cards were read until unique review IDs matched each listing total. There was no per-store cap, keyword, star or language filter. Customer text was separated from owner replies; owner replies were excluded.
 
-All displayed history was retained. Relative ages run from hours/months to years; T4 and Truedan include records displayed as six years old, and Milksha four years old. These are listing-history observations, not verified store-opening dates or visit dates. Historical changes in ownership/menu/service are not controlled.
+Extraction from rendered `div.jftiEf[data-review-id]` used its ID; `.kvMYJc` for the star accessible label; `.rsqaWe` for displayed age; and `.MyEned .wiI7pd` for customer text. Selectors document the collection and may change. No hidden/private endpoint was used.
 
-The public table preserves the exact displayed age. `under_one_year` means its label uses hours, days, weeks or months rather than years. It is a coarse display-age bucket, not an inferred calendar date. Google may show the edit age. There are 35 edited T4 records, 17 Milksha and 18 Truedan records. The historical MILKSHA-0331 example shows why recent display age need not mean recent experience.
+| Store | All captured records | All text | Rating only | Stars 5 / 4 / 3 / 2 / 1 |
+|---|---:|---:|---:|---|
+| T4 | 1,521 | 1,323 | 198 | 1,403 / 66 / 18 / 3 / 31 |
+| Milksha | 531 | 418 | 113 | 398 / 61 / 22 / 12 / 38 |
+| Truedan | 889 | 634 | 255 | 817 / 38 / 13 / 8 / 13 |
 
-Google-displayed English translations were read where present, alongside untranslated text where displayed. Original language and translation accuracy were not exhaustively verified; no reliable translation count is asserted for this corpus.
+Unique IDs and star distributions reconcile with the observed snapshot. Different IDs with repeated wording remain separate records; edited reviews are not a version history. Raw files remain local; integrity hashes are in `collection_checks.json`.
 
-## What complete coverage means
+## Reproducible inclusion rules
 
-All 2,941 records visible through these three listings were captured and reconciled at collection. Deleted, hidden, later-added or inaccessible reviews, other branches, delivery-platform reviews and non-reviewing customers are outside the frame. Completeness within this snapshot does not establish representativeness of customers or London demand.
+`build_windows.py` applies rules to the saved `displayed_age`, without changing sentiment or theme labels. The public archive includes `main_2y_proxy`, `comparison_1y_proxy`, `edited_date_flag`, `known_historical_experience` and `window_reason` for every row. A 1 means included/flagged; a 0 means not included/not flagged. “Not flagged” does not prove an experience is recent.
 
-## Public fields
+- Strip the literal `Edited ` prefix solely for age parsing, retaining an edit flag.
+- Hours/days/weeks/months → both recent proxies, unless explicitly historical.
+- `a year ago` → main proxy only.
+- `2 years ago` and older → historical archive only.
+- MILKSHA-0331 → archive only because the text explicitly describes 2021.
+- Unknown date labels must raise an error for inspection; never silently assign a date.
 
-`record_id` is a project lookup key based on capture order, not chronological rank. `google_review_id` is the source identifier. `stars` and `displayed_age` are observed. `has_text`, `text_characters`, `text_sha256` and `display_age_band` are derived. `sentiment` is an AI judgement; ten 0/1 theme columns are dictionary results. `source_url` opens the relevant store listing, not a guaranteed deep link to an individual review.
+Boundary uncertainty cannot be eliminated from these saved labels. Exact rolling windows would require verified exact publication dates and a separately stated policy for edits. Visit dates would still need separate evidence. We therefore use approximate periods and report an additional main-frame check excluding all flagged edited records.
 
-Names, profile links, images and full text are omitted from the published table. Selected paraphrases are in the audit. Source review IDs and content hashes support matching, but cannot reconstruct withheld text. Numerical outputs are reproducible from public labels; independently validating semantic coding requires source access.
+## Language and access limitations
+
+Google-displayed English translations were used where present; original language and translation accuracy were not exhaustively checked. These listing snapshots exclude hidden/deleted or later-added reviews and all other branches/platforms. Complete collection does not mean representative customer coverage. Links open store listings, not guaranteed individual-review deep links. IDs and hashes cannot reconstruct withheld wording.
+
+## Why two years, and what are the trade-offs?
+
+The decision concerns a venture entering the market now. Recent reviews are more relevant to current menus, staff and operating practices than six-year-old experiences. Two years provides more material than one year while reducing the weight of older conditions; the one-year comparison checks whether the interpretation changes with a tighter window.
+
+| Choice | Benefit | Risk / cost | How it is handled |
+|---|---|---|---|
+| Two-year main frame | Better balance of recency and evidence volume; Truedan has 170 texts rather than 65 | May still mix older menus, staff or service regimes | Compare the one-year subset; avoid claims of current measured performance |
+| One-year comparison | Closer to recent customer accounts | Smaller and unequal groups; promotions or seasonal activity may have greater influence | Show denominators and counts; do not treat changes as a causal trend |
+| Relative-age filtering | Transparent, reproducible use of the data actually retained | Rounded boundaries and edit dates are not exact publication/visit dates | Label all periods approximate, preserve original labels and flag edits |
+| Full history in the appendix | Keeps the original collection auditable | Old comments can distract from the current decision | Do not use archive totals as the denominator of main charts |
+
+More reviews do not automatically mean better evidence for a current decision. These windows reduce historical mismatch but do not remove Google self-selection, incentives, translation effects or the confounding of brand and location. Stars are from the same source, not independent triangulation. No minimum sample-size threshold or statistical representativeness is claimed.

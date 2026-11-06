@@ -1,5 +1,7 @@
 # Source register
 
+**The source totals below describe the full historical collection, not the current analysis sample.** Main analysis targets approximately 5 Nov 2024–5 Nov 2026 through a two-year relative-age proxy; comparison targets approximately 5 Nov 2025–5 Nov 2026 through a one-year proxy. See [time-window method](time_window_method.md). No new source collection occurred on the 6 November revision date.
+
 Collection snapshot: **5 November 2026**. The three live Google Maps listing URLs below are also included per record in the public CSV.
 
 | ID | Source | Use and limits |

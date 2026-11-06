@@ -1,127 +1,396 @@
 {
-  "t4": {
-    "name": "T4 Liverpool Street",
-    "listing_total": 1521,
-    "collected": 1521,
-    "text_reviews": 1323,
-    "rating_only": 198,
-    "stars": {
-      "1": 31,
-      "2": 3,
-      "3": 18,
-      "4": 66,
-      "5": 1403
+  "snapshot_date": "2026-11-05",
+  "revision_date": "2026-11-06",
+  "intended_main_period": "2024-11-05 to 2026-11-05 (approximate; not verified exact dates)",
+  "intended_comparison_period": "2025-11-05 to 2026-11-05 (approximate; not verified exact dates)",
+  "main_2y_proxy": {
+    "t4": {
+      "records": 776,
+      "text_reviews": 712,
+      "rating_only": 64,
+      "sentiment": {
+        "positive": 690,
+        "negative": 10,
+        "mixed": 6,
+        "neutral": 6
+      },
+      "stars": {
+        "1": 12,
+        "3": 5,
+        "4": 30,
+        "5": 729
+      },
+      "themes": {
+        "drink_product": 401,
+        "staff_service": 465,
+        "speed_waiting": 64,
+        "authenticity_origin": 8,
+        "price_value": 12,
+        "customisation": 14,
+        "setting_location": 25,
+        "desserts_bakery": 1,
+        "digital_delivery": 6,
+        "repeat_loyalty": 67
+      },
+      "edited_text_reviews": 20,
+      "nonpositive_with_5_stars": 5
     },
-    "sentiment": {
-      "positive": 1249,
-      "negative": 30,
-      "mixed": 35,
-      "neutral": 8,
-      "unclear": 1
+    "milksha": {
+      "records": 276,
+      "text_reviews": 230,
+      "rating_only": 46,
+      "sentiment": {
+        "positive": 182,
+        "mixed": 26,
+        "negative": 20,
+        "neutral": 2
+      },
+      "stars": {
+        "1": 14,
+        "2": 6,
+        "3": 10,
+        "4": 29,
+        "5": 217
+      },
+      "themes": {
+        "drink_product": 184,
+        "staff_service": 71,
+        "speed_waiting": 20,
+        "authenticity_origin": 21,
+        "price_value": 33,
+        "customisation": 10,
+        "setting_location": 17,
+        "desserts_bakery": 76,
+        "digital_delivery": 5,
+        "repeat_loyalty": 33
+      },
+      "edited_text_reviews": 10,
+      "nonpositive_with_5_stars": 12
     },
-    "themes": {
-      "drink_product": 823,
-      "staff_service": 842,
-      "speed_waiting": 128,
-      "authenticity_origin": 17,
-      "price_value": 45,
-      "customisation": 32,
-      "setting_location": 59,
-      "desserts_bakery": 1,
-      "digital_delivery": 16,
-      "repeat_loyalty": 158
-    },
-    "recent_text_sentiment": {
-      "positive": 147,
-      "negative": 7,
-      "mixed": 2,
-      "neutral": 2
-    },
-    "recent_text_n": 158,
-    "nonpositive_with_5_stars": 20,
-    "edited_records": 35
+    "truedan": {
+      "records": 222,
+      "text_reviews": 170,
+      "rating_only": 52,
+      "sentiment": {
+        "positive": 154,
+        "negative": 10,
+        "mixed": 3,
+        "neutral": 3
+      },
+      "stars": {
+        "1": 6,
+        "2": 1,
+        "3": 5,
+        "4": 8,
+        "5": 202
+      },
+      "themes": {
+        "drink_product": 128,
+        "staff_service": 46,
+        "speed_waiting": 17,
+        "authenticity_origin": 21,
+        "price_value": 19,
+        "customisation": 8,
+        "setting_location": 9,
+        "desserts_bakery": 2,
+        "digital_delivery": 6,
+        "repeat_loyalty": 27
+      },
+      "edited_text_reviews": 8,
+      "nonpositive_with_5_stars": 4
+    }
   },
-  "milksha": {
-    "name": "Milksha Shaftesbury Avenue",
-    "listing_total": 531,
-    "collected": 531,
-    "text_reviews": 418,
-    "rating_only": 113,
-    "stars": {
-      "1": 38,
-      "2": 12,
-      "3": 22,
-      "4": 61,
-      "5": 398
+  "comparison_1y_proxy": {
+    "t4": {
+      "records": 170,
+      "text_reviews": 158,
+      "rating_only": 12,
+      "sentiment": {
+        "positive": 147,
+        "negative": 7,
+        "mixed": 2,
+        "neutral": 2
+      },
+      "stars": {
+        "1": 8,
+        "3": 2,
+        "4": 11,
+        "5": 149
+      },
+      "themes": {
+        "drink_product": 88,
+        "staff_service": 106,
+        "speed_waiting": 14,
+        "authenticity_origin": 2,
+        "price_value": 3,
+        "customisation": 4,
+        "setting_location": 6,
+        "desserts_bakery": 0,
+        "digital_delivery": 0,
+        "repeat_loyalty": 21
+      },
+      "edited_text_reviews": 3,
+      "nonpositive_with_5_stars": 1
     },
-    "sentiment": {
-      "positive": 310,
-      "mixed": 59,
-      "negative": 44,
-      "neutral": 5
+    "milksha": {
+      "records": 185,
+      "text_reviews": 159,
+      "rating_only": 26,
+      "sentiment": {
+        "positive": 126,
+        "mixed": 19,
+        "negative": 13,
+        "neutral": 1
+      },
+      "stars": {
+        "1": 8,
+        "2": 4,
+        "3": 6,
+        "4": 14,
+        "5": 153
+      },
+      "themes": {
+        "drink_product": 126,
+        "staff_service": 44,
+        "speed_waiting": 12,
+        "authenticity_origin": 16,
+        "price_value": 20,
+        "customisation": 8,
+        "setting_location": 11,
+        "desserts_bakery": 58,
+        "digital_delivery": 3,
+        "repeat_loyalty": 23
+      },
+      "edited_text_reviews": 7,
+      "nonpositive_with_5_stars": 9
     },
-    "themes": {
-      "drink_product": 339,
-      "staff_service": 120,
-      "speed_waiting": 39,
-      "authenticity_origin": 51,
-      "price_value": 56,
-      "customisation": 26,
-      "setting_location": 33,
-      "desserts_bakery": 142,
-      "digital_delivery": 11,
-      "repeat_loyalty": 56
-    },
-    "recent_text_sentiment": {
-      "positive": 127,
-      "mixed": 19,
-      "negative": 13,
-      "neutral": 1
-    },
-    "recent_text_n": 160,
-    "nonpositive_with_5_stars": 27,
-    "edited_records": 17
+    "truedan": {
+      "records": 84,
+      "text_reviews": 65,
+      "rating_only": 19,
+      "sentiment": {
+        "positive": 56,
+        "negative": 6,
+        "mixed": 2,
+        "neutral": 1
+      },
+      "stars": {
+        "1": 3,
+        "3": 2,
+        "4": 2,
+        "5": 77
+      },
+      "themes": {
+        "drink_product": 49,
+        "staff_service": 23,
+        "speed_waiting": 7,
+        "authenticity_origin": 15,
+        "price_value": 10,
+        "customisation": 4,
+        "setting_location": 5,
+        "desserts_bakery": 2,
+        "digital_delivery": 4,
+        "repeat_loyalty": 13
+      },
+      "edited_text_reviews": 3,
+      "nonpositive_with_5_stars": 3
+    }
   },
-  "truedan": {
-    "name": "Truedan Russell Square",
-    "listing_total": 889,
-    "collected": 889,
-    "text_reviews": 634,
-    "rating_only": 255,
-    "stars": {
-      "1": 13,
-      "2": 8,
-      "3": 13,
-      "4": 38,
-      "5": 817
+  "main_without_edited": {
+    "t4": {
+      "records": 754,
+      "text_reviews": 692,
+      "rating_only": 62,
+      "sentiment": {
+        "positive": 671,
+        "negative": 9,
+        "mixed": 6,
+        "neutral": 6
+      },
+      "stars": {
+        "1": 11,
+        "3": 4,
+        "4": 29,
+        "5": 710
+      },
+      "themes": {
+        "drink_product": 388,
+        "staff_service": 449,
+        "speed_waiting": 64,
+        "authenticity_origin": 8,
+        "price_value": 12,
+        "customisation": 13,
+        "setting_location": 24,
+        "desserts_bakery": 1,
+        "digital_delivery": 5,
+        "repeat_loyalty": 65
+      },
+      "edited_text_reviews": 0,
+      "nonpositive_with_5_stars": 5
     },
-    "sentiment": {
-      "positive": 571,
-      "negative": 20,
-      "neutral": 13,
-      "mixed": 28,
-      "unclear": 2
+    "milksha": {
+      "records": 265,
+      "text_reviews": 220,
+      "rating_only": 45,
+      "sentiment": {
+        "positive": 175,
+        "mixed": 24,
+        "negative": 19,
+        "neutral": 2
+      },
+      "stars": {
+        "1": 13,
+        "2": 6,
+        "3": 10,
+        "4": 28,
+        "5": 208
+      },
+      "themes": {
+        "drink_product": 174,
+        "staff_service": 68,
+        "speed_waiting": 19,
+        "authenticity_origin": 20,
+        "price_value": 32,
+        "customisation": 8,
+        "setting_location": 17,
+        "desserts_bakery": 71,
+        "digital_delivery": 4,
+        "repeat_loyalty": 32
+      },
+      "edited_text_reviews": 0,
+      "nonpositive_with_5_stars": 11
     },
-    "themes": {
-      "drink_product": 489,
-      "staff_service": 197,
-      "speed_waiting": 44,
-      "authenticity_origin": 93,
-      "price_value": 56,
-      "customisation": 36,
-      "setting_location": 36,
-      "desserts_bakery": 14,
-      "digital_delivery": 13,
-      "repeat_loyalty": 88
+    "truedan": {
+      "records": 214,
+      "text_reviews": 162,
+      "rating_only": 52,
+      "sentiment": {
+        "positive": 146,
+        "negative": 10,
+        "mixed": 3,
+        "neutral": 3
+      },
+      "stars": {
+        "1": 6,
+        "2": 1,
+        "3": 5,
+        "4": 8,
+        "5": 194
+      },
+      "themes": {
+        "drink_product": 120,
+        "staff_service": 45,
+        "speed_waiting": 17,
+        "authenticity_origin": 21,
+        "price_value": 19,
+        "customisation": 8,
+        "setting_location": 9,
+        "desserts_bakery": 2,
+        "digital_delivery": 6,
+        "repeat_loyalty": 25
+      },
+      "edited_text_reviews": 0,
+      "nonpositive_with_5_stars": 4
+    }
+  },
+  "all_history_archive": {
+    "t4": {
+      "records": 1521,
+      "text_reviews": 1323,
+      "rating_only": 198,
+      "sentiment": {
+        "positive": 1249,
+        "negative": 30,
+        "mixed": 35,
+        "neutral": 8,
+        "unclear": 1
+      },
+      "stars": {
+        "1": 31,
+        "2": 3,
+        "3": 18,
+        "4": 66,
+        "5": 1403
+      },
+      "themes": {
+        "drink_product": 823,
+        "staff_service": 842,
+        "speed_waiting": 128,
+        "authenticity_origin": 17,
+        "price_value": 45,
+        "customisation": 32,
+        "setting_location": 59,
+        "desserts_bakery": 1,
+        "digital_delivery": 16,
+        "repeat_loyalty": 158
+      },
+      "edited_text_reviews": 32,
+      "nonpositive_with_5_stars": 20
     },
-    "recent_text_sentiment": {
-      "positive": 56,
-      "negative": 6,
-      "mixed": 2,
-      "neutral": 1
+    "milksha": {
+      "records": 531,
+      "text_reviews": 418,
+      "rating_only": 113,
+      "sentiment": {
+        "positive": 310,
+        "mixed": 59,
+        "negative": 44,
+        "neutral": 5
+      },
+      "stars": {
+        "1": 38,
+        "2": 12,
+        "3": 22,
+        "4": 61,
+        "5": 398
+      },
+      "themes": {
+        "drink_product": 339,
+        "staff_service": 120,
+        "speed_waiting": 39,
+        "authenticity_origin": 51,
+        "price_value": 56,
+        "customisation": 26,
+        "setting_location": 33,
+        "desserts_bakery": 142,
+        "digital_delivery": 11,
+        "repeat_loyalty": 56
+      },
+      "edited_text_reviews": 15,
+      "nonpositive_with_5_stars": 27
     },
-    "recent_text_n": 65,
-    "nonpositive_with_5_stars": 29,
-    "edited_records": 18
+    "truedan": {
+      "records": 889,
+      "text_reviews": 634,
+      "rating_only": 255,
+      "sentiment": {
+        "positive": 571,
+        "negative": 20,
+        "neutral": 13,
+        "mixed": 28,
+        "unclear": 2
+      },
+      "stars": {
+        "1": 13,
+        "2": 8,
+        "3": 13,
+        "4": 38,
+        "5": 817
+      },
+      "themes": {
+        "drink_product": 489,
+        "staff_service": 197,
+        "speed_waiting": 44,
+        "authenticity_origin": 93,
+        "price_value": 56,
+        "customisation": 36,
+        "setting_location": 36,
+        "desserts_bakery": 14,
+        "digital_delivery": 13,
+        "repeat_loyalty": 88
+      },
+      "edited_text_reviews": 17,
+      "nonpositive_with_5_stars": 29
+    }
   }
 }

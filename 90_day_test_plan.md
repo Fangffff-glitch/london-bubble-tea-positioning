@@ -1,5 +1,7 @@
 # Proposed 90-day positioning and service test
 
+Evidence frame: the approximately two-year relative-age proxy ending 5 November 2026 is primary, with an approximately one-year sensitivity check. This recency choice reduces reliance on old conditions but does not validate any numerical operating target. Historical examples are context only; use direct current observations before implementation.
+
 **Proposal only. No store trial or commercial results are claimed.**
 
 ## Decision

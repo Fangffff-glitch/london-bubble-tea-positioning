@@ -1,5 +1,7 @@
 # AI workflow and provenance
 
+The 6 November revision changes the analysis frame, not the original labels. Main analysis uses 1,112 texts in the two-year relative-age proxy; comparison uses 382 texts in the one-year proxy. All 2,375 historical text labels remain in the archive. See [time-window protocol](time_window_method.md).
+
 ## Roles
 
 The project author supplied the business question, Taiwanese-brand case selection and original strategic framing. In this extension, Codex collected rendered public review records, read every non-empty text, assigned sentiment, designed and checked a theme dictionary, generated Python aggregation/chart code and drafted documentation. This is AI-assisted research, not a claim of unaided coding or a custom-trained sentiment model.
@@ -13,7 +15,7 @@ The original assignment declared Gemini support. Historical prompts and precise 
 3. Keep blank-text records outside text sentiment; preserve every record in the public table.
 4. Recheck selected ambiguous examples and verify label coverage. All 2,375 texts have exactly one sentiment label. A second independent annotator was not used.
 
-The final totals are 2,130 positive, 122 mixed, 26 neutral, 94 negative and 3 unclear. No sentiment is inferred from stars. 76 five-star text reviews have a non-positive-only label.
+The historical-archive totals are 2,130 positive, 122 mixed, 26 neutral, 94 negative and 3 unclear. No sentiment is inferred from stars. 76 five-star text reviews have a non-positive-only label.
 
 ## Reusable coding instruction
 
@@ -31,8 +33,8 @@ Theme flags are generated separately by [code_themes.py](code_themes.py), using 
 - Selected exceptions and the anticipatory-wait false positive were checked against raw wording.
 - Charts are regenerated from public labels and checked visually.
 
-**Human validation remains pending.** The blank `author_review.csv` worklist selects up to ten records per store/label in capture order, including all scarce neutral/unclear cases. It is a stratified audit aid, not a random accuracy-test sample. Record disagreements and corrections before reporting any accuracy figure. An independent random sample would be needed for a defensible population-level accuracy estimate.
+**Human validation remains pending.** The blank `author_review.csv` worklist is now restricted to the main frame and selects up to ten records per store/label in capture order, including all scarce neutral/unclear cases. It is a stratified audit aid, not a random accuracy-test sample. Record disagreements and corrections before reporting any accuracy figure. An independent random sample would be needed for a defensible population-level accuracy estimate.
 
 ## Reproducibility boundary
 
-Public CSV → counts/charts is reproducible with `python3 build_charts.py`. Raw local text → theme flags is reproducible with the dictionary and `code_themes.py`. Raw text → semantic sentiment is a judgement process and may differ on rerun. The private raw files are hashed in `collection_checks.json`; content hashes are integrity checks, not access to the source wording.
+Run `python3 build_windows.py` and then `python3 build_charts.py` to reproduce the time flags, subsets, counts and charts from the public archive. Raw local text → theme flags is reproducible with the dictionary and `code_themes.py`. Raw text → semantic sentiment is a judgement process and may differ on rerun. The private raw files are hashed in `collection_checks.json`; content hashes are integrity checks, not access to the source wording.

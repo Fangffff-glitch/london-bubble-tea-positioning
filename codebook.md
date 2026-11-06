@@ -1,5 +1,9 @@
 # Sentiment and theme codebook
 
+## Current analysis frame
+
+Main charts use the two-year relative-display-age proxy (1,112 texts); the one-year comparison uses 382 texts. The archive retains all 2,375 text labels. Theme denominators are text reviews **within the stated window**, not the full history. See [time-window rules](time_window_method.md). Classification definitions are unchanged by this revision.
+
 ## Unit of analysis
 
 One unique Google customer-review ID at one selected store. Text may cover several visits or products; the whole displayed customer text is one unit. Owner replies are excluded. Rating-only records have `sentiment=not_applicable` and all theme flags 0; this means unavailable text, not neutral sentiment.
@@ -22,7 +26,7 @@ The final three unclear cases are T4-1320, TRUEDAN-0349 and TRUEDAN-0369. They a
 
 ## Dictionary-based multi-label themes
 
-All texts are matched case-insensitively against the exact regular expressions in [theme_dictionary.json](theme_dictionary.json). A theme is 1 if at least one match exists; repeated words do not increase the count. Denominator = all text reviews at that store. Several themes may be 1 for one review; percentages can total more than 100%.
+All texts are matched case-insensitively against the exact regular expressions in [theme_dictionary.json](theme_dictionary.json). A theme is 1 if at least one match exists; repeated words do not increase the count. Denominator = text reviews at that store within the stated analysis window. Several themes may be 1 for one review; percentages can total more than 100%.
 
 | Field | What is detected | Important limits |
 |---|---|---|

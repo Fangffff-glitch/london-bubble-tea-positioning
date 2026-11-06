@@ -9,5 +9,15 @@
     "t4": "212e520f7f91089224a3dfeb0657932ac10f5e81ade2a1ed4d43465bdad5a557",
     "milksha": "90905f2338010f6024123b1d0a5f76ece59ddf7d4fbc22e6ba6497ccd03959b0",
     "truedan": "ef1e99640b5494a86ee3e335c521f83a92dffe04994ee8244611ff534b449da0"
+  },
+  "window_revision": {
+    "date": "2026-11-06",
+    "main_records": 1274,
+    "main_texts": 1112,
+    "comparison_records": 439,
+    "comparison_texts": 382,
+    "known_historical_exclusion": "MILKSHA-0331",
+    "comparison_is_subset_of_main": true,
+    "exact_dates_verified": false
   }
 }

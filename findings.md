@@ -1,58 +1,92 @@
-# Full-snapshot findings
+# Results for the recent analysis frames
 
-## Coverage and sentiment
+## Time period — what is actually included?
 
-All 2,941 unique Google review/rating records were captured. Of these, 2,375 contain text and 566 are rating-only. Every text was read for AI semantic sentiment; every record contributes to the rating distribution.
+**Snapshot: 5 November 2026. Revision: 6 November 2026. No new reviews were collected for this revision.**
 
-| Store | Positive | Mixed | Neutral | Negative | Unclear | Text denominator |
-|---|---:|---:|---:|---:|---:|---:|
-| T4 | 1,249 | 35 | 8 | 30 | 1 | 1,323 |
-| Milksha | 310 | 59 | 5 | 44 | 0 | 418 |
-| Truedan | 571 | 28 | 13 | 20 | 2 | 634 |
-| Total | 2,130 | 122 | 26 | 94 | 3 | 2,375 |
-
-Mixed or negative text is 65/1,323 (4.9%) at T4, 103/418 (24.6%) at Milksha and 48/634 (7.6%) at Truedan. These are labelled review shares, not dissatisfaction rates among all customers. Five-star texts assigned a different label number 20, 27 and 29 respectively. Stars would conceal some mixed experiences.
-
-## Topic differences
-
-| Dictionary topic | T4 n=1,323 | Milksha n=418 | Truedan n=634 |
-|---|---:|---:|---:|
-| Product/drink vocabulary | 823 (62.2%) | 339 (81.1%) | 489 (77.1%) |
-| Staff/service | 842 (63.6%) | 120 (28.7%) | 197 (31.1%) |
-| Speed/waiting | 128 (9.7%) | 39 (9.3%) | 44 (6.9%) |
-| Authenticity/origin | 17 (1.3%) | 51 (12.2%) | 93 (14.7%) |
-| Price/value/promotions | 45 (3.4%) | 56 (13.4%) | 56 (8.8%) |
-| Customisation | 32 (2.4%) | 26 (6.2%) | 36 (5.7%) |
-| Setting/location | 59 (4.5%) | 33 (7.9%) | 36 (5.7%) |
-| Desserts/bakery | 1 (0.1%) | 142 (34.0%) | 14 (2.2%) |
-| Digital/delivery | 16 (1.2%) | 11 (2.6%) | 13 (2.1%) |
-| Repeat/loyalty language | 158 (11.9%) | 56 (13.4%) | 88 (13.9%) |
-
-Topic shares are overlapping dictionary hits. They are not semantic aspect scores, independent customer priorities or a measure of commercial performance. Different product ranges and review lengths create different opportunities to mention a topic.
-
-![Whole-review sentiment within topic groups](theme_sentiment.png)
-
-This supplemental chart pools stores and applies the **whole-review** sentiment to reviews mentioning a topic. It must not be read as sentiment specifically about that topic. A mixed review praising tea and criticising service is mixed in both groups.
-
-## Broad recency sensitivity
-
-| Text subset | T4 positive / n | Milksha positive / n | Truedan positive / n |
-|---|---:|---:|---:|
-| All displayed history | 1,249 / 1,323 (94.4%) | 310 / 418 (74.2%) | 571 / 634 (90.1%) |
-| Displayed age under one year | 147 / 158 (93.0%) | 127 / 160 (79.4%) | 56 / 65 (86.2%) |
-
-The broadly recent subset reduces the observed gap between Milksha and Truedan. It does not establish improvement or decline: date labels are rounded, edited dates exist, sample sizes differ and customer mix may change. All-history results should not be presented as current service performance.
-
-## Observations → hypotheses → decisions
-
-| Observed in the corpus | Plausible hypothesis, not proven | Decision implication |
+| Role | Intended calendar period | Operational rule applied to saved Google display ages |
 |---|---|---|
-| Staff/service vocabulary is frequent at T4 | Interpersonal service may be part of its positioning | Preserve staff support and hospitality when changing workflow |
-| Authenticity/origin vocabulary appears more often at Milksha and Truedan | Taiwanese familiarity may contribute to differentiation | Test product-quality retention and willingness to pay directly |
-| Milksha has 142 dessert/bakery mentions | Its experience mix differs from a drink-focused comparison | Separate drinks and desserts in operational/product testing |
-| Some reviews praise products but criticise waits or recovery | Execution friction may weaken an otherwise appealing offer | Pilot order handling and queue management before removing craft products |
-| Delivery/promotion-pressure examples appear | Channel load may affect in-store service | Include channel and staffing data in the test |
+| Main analysis | Approximately 5 Nov 2024–5 Nov 2026 | Hours/days/weeks/months ago, plus “a year ago”; exclude “2 years ago” and older |
+| Sensitivity comparison | Approximately 5 Nov 2025–5 Nov 2026 | Hours/days/weeks/months ago only; exclude all year-labelled records |
+| Historical appendix | All captured listing history through 5 Nov 2026 | Retain all 2,941 original records for traceability |
 
-## What remains unproven
+**These are relative-display-age proxies, not verified exact 24- or 12-month windows or visit dates.** The saved data contain rounded relative labels, sometimes edit ages. We do not assign invented calendar dates. Boundary reviews may be misclassified if Google's rounding differs from the assumed age bands. MILKSHA-0331 explicitly describes a 2021 experience and is excluded from both recent windows, even though its displayed age is recent. Other undisclosed historical experiences may remain. Edited records stay in the main analysis but are flagged and tested separately.
 
-The study cannot establish that commuters dominate these stores, that speed matters more than authenticity, that T4's review volume means greater sales, or that standardisation improves margins. Queue mentions are additional coded detail within the same source, **not independent external triangulation**. The next evidence should be matched peak-hour observations and actual operating economics. The proposed 90-day plan describes this next step; no operating trial has been run.
+| Analysis frame | T4 records / texts | Milksha records / texts | Truedan records / texts | Total records / texts |
+|---|---:|---:|---:|---:|
+| Main: approximately two years | 776 / 712 | 276 / 230 | 222 / 170 | 1,274 / 1,112 |
+| Comparison: approximately one year | 170 / 158 | 185 / 159 | 84 / 65 | 439 / 382 |
+| Full history: archive only | 1,521 / 1,323 | 531 / 418 | 889 / 634 | 2,941 / 2,375 |
+
+## Main-frame sentiment
+
+| Text sentiment | T4 | Milksha | Truedan |
+|---|---:|---:|---:|
+| Positive | 690 (96.9%) | 182 (79.1%) | 154 (90.6%) |
+| Mixed | 6 (0.8%) | 26 (11.3%) | 3 (1.8%) |
+| Neutral | 6 (0.8%) | 2 (0.9%) | 3 (1.8%) |
+| Negative | 10 (1.4%) | 20 (8.7%) | 10 (5.9%) |
+| Unclear | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+
+## One-year comparison sentiment
+
+| Text sentiment | T4 | Milksha | Truedan |
+|---|---:|---:|---:|
+| Positive | 147 (93.0%) | 126 (79.2%) | 56 (86.2%) |
+| Mixed | 2 (1.3%) | 19 (11.9%) | 2 (3.1%) |
+| Neutral | 2 (1.3%) | 1 (0.6%) | 1 (1.5%) |
+| Negative | 7 (4.4%) | 13 (8.2%) | 6 (9.2%) |
+| Unclear | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+
+## Topic counts and percentages: both frames
+
+### Main two-year proxy
+
+| Topic | T4 | Milksha | Truedan |
+|---|---:|---:|---:|
+| drink product | 401 (56.3%) | 184 (80.0%) | 128 (75.3%) |
+| staff service | 465 (65.3%) | 71 (30.9%) | 46 (27.1%) |
+| speed waiting | 64 (9.0%) | 20 (8.7%) | 17 (10.0%) |
+| authenticity origin | 8 (1.1%) | 21 (9.1%) | 21 (12.4%) |
+| price value | 12 (1.7%) | 33 (14.3%) | 19 (11.2%) |
+| customisation | 14 (2.0%) | 10 (4.3%) | 8 (4.7%) |
+| setting location | 25 (3.5%) | 17 (7.4%) | 9 (5.3%) |
+| desserts bakery | 1 (0.1%) | 76 (33.0%) | 2 (1.2%) |
+| digital delivery | 6 (0.8%) | 5 (2.2%) | 6 (3.5%) |
+| repeat loyalty | 67 (9.4%) | 33 (14.3%) | 27 (15.9%) |
+### One-year comparison
+
+| Topic | T4 | Milksha | Truedan |
+|---|---:|---:|---:|
+| drink product | 88 (55.7%) | 126 (79.2%) | 49 (75.4%) |
+| staff service | 106 (67.1%) | 44 (27.7%) | 23 (35.4%) |
+| speed waiting | 14 (8.9%) | 12 (7.5%) | 7 (10.8%) |
+| authenticity origin | 2 (1.3%) | 16 (10.1%) | 15 (23.1%) |
+| price value | 3 (1.9%) | 20 (12.6%) | 10 (15.4%) |
+| customisation | 4 (2.5%) | 8 (5.0%) | 4 (6.2%) |
+| setting location | 6 (3.8%) | 11 (6.9%) | 5 (7.7%) |
+| desserts bakery | 0 (0.0%) | 58 (36.5%) | 2 (3.1%) |
+| digital delivery | 0 (0.0%) | 3 (1.9%) | 4 (6.2%) |
+| repeat loyalty | 21 (13.3%) | 23 (14.5%) | 13 (20.0%) |
+
+Topics are overlapping dictionary mentions, not aspect sentiment or ranked customer priorities. Changes in the proportion mentioning a topic may reflect review lengths, menus, translations or customer mix.
+
+## Edited-date sensitivity within the main frame
+
+| Store | Main positive / text n | Excluding edited positive / text n | Edited texts removed |
+|---|---:|---:|---:|
+| T4 · Liverpool Street | 690 / 712 (96.9%) | 671 / 692 (97.0%) | 20 |
+| Milksha · Shaftesbury Ave | 182 / 230 (79.1%) | 175 / 220 (79.5%) | 10 |
+| Truedan · Russell Square | 154 / 170 (90.6%) | 146 / 162 (90.1%) | 8 |
+
+This removes flagged edit-age uncertainty at the cost of discarding potentially valid recent accounts. It cannot detect old experiences that lack an edit marker. No significance or causal trend is claimed; the two recent windows overlap.
+
+## Interpretation and business implications
+
+The tighter one-year frame has a lower positive-only share at T4 and Truedan; Milksha is nearly unchanged (79.1% versus 79.2%). That is a descriptive sensitivity finding, not proof of deterioration. The main two-year frame offers more evidence while reducing reliance on old conditions. Use both when presenting the positioning argument.
+
+Product appeal and service reliability should be tested together. Recent negative and mixed texts show why favourable overall sentiment does not eliminate operational issues. Neither review frequency nor a topic's absence establishes customer priorities, market share or actual waiting times. Direct matched queue observations, menu/price comparisons and actual unit economics remain necessary before a location or standardisation decision.
+
+![Whole-review sentiment within main-frame topic groups](theme_sentiment.png)
+
+The chart uses main-frame texts only. It assigns the whole-review label to each mentioned topic; it is **not** sentiment about that topic. Pooled groups overlap and unequal store sizes influence their composition.
